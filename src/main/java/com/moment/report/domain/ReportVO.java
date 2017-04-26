@@ -1,13 +1,18 @@
-package com.moment.gradegroup.domain;
+package com.moment.report.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
-public class GradegroupVO implements Serializable {
+public class ReportVO implements Serializable {
     private Integer id;
 
     private Integer userid;
 
-    private Integer roleid;
+    private Integer picid;
+
+    private String description;
+
+    private Date time;
 
     private static final long serialVersionUID = 1L;
 
@@ -27,12 +32,28 @@ public class GradegroupVO implements Serializable {
         this.userid = userid;
     }
 
-    public Integer getRoleid() {
-        return roleid;
+    public Integer getPicid() {
+        return picid;
     }
 
-    public void setRoleid(Integer roleid) {
-        this.roleid = roleid;
+    public void setPicid(Integer picid) {
+        this.picid = picid;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 
     @Override
@@ -43,7 +64,9 @@ public class GradegroupVO implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", userid=").append(userid);
-        sb.append(", roleid=").append(roleid);
+        sb.append(", picid=").append(picid);
+        sb.append(", description=").append(description);
+        sb.append(", time=").append(time);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -60,10 +83,12 @@ public class GradegroupVO implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        GradegroupVO other = (GradegroupVO) that;
+        ReportVO other = (ReportVO) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getUserid() == null ? other.getUserid() == null : this.getUserid().equals(other.getUserid()))
-            && (this.getRoleid() == null ? other.getRoleid() == null : this.getRoleid().equals(other.getRoleid()));
+            && (this.getPicid() == null ? other.getPicid() == null : this.getPicid().equals(other.getPicid()))
+            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
+            && (this.getTime() == null ? other.getTime() == null : this.getTime().equals(other.getTime()));
     }
 
     @Override
@@ -72,7 +97,9 @@ public class GradegroupVO implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getUserid() == null) ? 0 : getUserid().hashCode());
-        result = prime * result + ((getRoleid() == null) ? 0 : getRoleid().hashCode());
+        result = prime * result + ((getPicid() == null) ? 0 : getPicid().hashCode());
+        result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
+        result = prime * result + ((getTime() == null) ? 0 : getTime().hashCode());
         return result;
     }
 }
