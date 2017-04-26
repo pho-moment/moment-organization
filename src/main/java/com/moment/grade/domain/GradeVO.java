@@ -5,9 +5,13 @@ import java.io.Serializable;
 public class GradeVO implements Serializable {
     private Integer id;
 
-    private String name;
+    private String grade;
 
     private String description;
+
+    private Integer picnum;
+
+    private Integer uploadnum;
 
     private static final long serialVersionUID = 1L;
 
@@ -19,12 +23,12 @@ public class GradeVO implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getGrade() {
+        return grade;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setGrade(String grade) {
+        this.grade = grade == null ? null : grade.trim();
     }
 
     public String getDescription() {
@@ -35,6 +39,22 @@ public class GradeVO implements Serializable {
         this.description = description == null ? null : description.trim();
     }
 
+    public Integer getPicnum() {
+        return picnum;
+    }
+
+    public void setPicnum(Integer picnum) {
+        this.picnum = picnum;
+    }
+
+    public Integer getUploadnum() {
+        return uploadnum;
+    }
+
+    public void setUploadnum(Integer uploadnum) {
+        this.uploadnum = uploadnum;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -42,8 +62,10 @@ public class GradeVO implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
+        sb.append(", grade=").append(grade);
         sb.append(", description=").append(description);
+        sb.append(", picnum=").append(picnum);
+        sb.append(", uploadnum=").append(uploadnum);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -62,8 +84,10 @@ public class GradeVO implements Serializable {
         }
         GradeVO other = (GradeVO) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()));
+            && (this.getGrade() == null ? other.getGrade() == null : this.getGrade().equals(other.getGrade()))
+            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
+            && (this.getPicnum() == null ? other.getPicnum() == null : this.getPicnum().equals(other.getPicnum()))
+            && (this.getUploadnum() == null ? other.getUploadnum() == null : this.getUploadnum().equals(other.getUploadnum()));
     }
 
     @Override
@@ -71,8 +95,10 @@ public class GradeVO implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getGrade() == null) ? 0 : getGrade().hashCode());
         result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
+        result = prime * result + ((getPicnum() == null) ? 0 : getPicnum().hashCode());
+        result = prime * result + ((getUploadnum() == null) ? 0 : getUploadnum().hashCode());
         return result;
     }
 }

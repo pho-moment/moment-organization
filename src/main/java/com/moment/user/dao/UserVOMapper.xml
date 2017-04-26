@@ -5,12 +5,14 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="sex" property="sex" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
     <result column="phonum" property="phonum" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="salt" property="salt" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="time" property="time" jdbcType="TIMESTAMP" />
     <result column="score" property="score" jdbcType="INTEGER" />
+    <result column="gradeid" property="gradeid" jdbcType="INTEGER" />
     <result column="picnum" property="picnum" jdbcType="INTEGER" />
     <result column="collectnum" property="collectnum" jdbcType="INTEGER" />
     <result column="collectPicnum" property="collectpicnum" jdbcType="INTEGER" />
@@ -76,8 +78,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, sex, name, phonum, email, salt, password, time, score, picnum, collectnum, collectPicnum, 
-    fansnum, concernnum
+    id, sex, name, account, phonum, email, salt, password, time, score, gradeid, picnum, 
+    collectnum, collectPicnum, fansnum, concernnum
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.moment.user.domain.UserVOExample" >
     select
@@ -119,15 +121,17 @@
   </delete>
   <insert id="insert" parameterType="com.moment.user.domain.UserVO" useGeneratedKeys="true" keyProperty="id" >
     insert into user (id, sex, name, 
-      phonum, email, salt, 
-      password, time, score, 
-      picnum, collectnum, collectPicnum, 
-      fansnum, concernnum)
+      account, phonum, email, 
+      salt, password, time, 
+      score, gradeid, picnum, 
+      collectnum, collectPicnum, fansnum, 
+      concernnum)
     values (#{id,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{phonum,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, #{score,jdbcType=INTEGER}, 
-      #{picnum,jdbcType=INTEGER}, #{collectnum,jdbcType=INTEGER}, #{collectpicnum,jdbcType=INTEGER}, 
-      #{fansnum,jdbcType=INTEGER}, #{concernnum,jdbcType=INTEGER})
+      #{account,jdbcType=VARCHAR}, #{phonum,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{salt,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
+      #{score,jdbcType=INTEGER}, #{gradeid,jdbcType=INTEGER}, #{picnum,jdbcType=INTEGER}, 
+      #{collectnum,jdbcType=INTEGER}, #{collectpicnum,jdbcType=INTEGER}, #{fansnum,jdbcType=INTEGER}, 
+      #{concernnum,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.moment.user.domain.UserVO" useGeneratedKeys="true" keyProperty="id" >
     insert into user
@@ -140,6 +144,9 @@
       </if>
       <if test="name != null" >
         name,
+      </if>
+      <if test="account != null" >
+        account,
       </if>
       <if test="phonum != null" >
         phonum,
@@ -158,6 +165,9 @@
       </if>
       <if test="score != null" >
         score,
+      </if>
+      <if test="gradeid != null" >
+        gradeid,
       </if>
       <if test="picnum != null" >
         picnum,
@@ -185,6 +195,9 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
       <if test="phonum != null" >
         #{phonum,jdbcType=VARCHAR},
       </if>
@@ -202,6 +215,9 @@
       </if>
       <if test="score != null" >
         #{score,jdbcType=INTEGER},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
       </if>
       <if test="picnum != null" >
         #{picnum,jdbcType=INTEGER},
@@ -238,6 +254,9 @@
       <if test="record.name != null" >
         name = #{record.name,jdbcType=VARCHAR},
       </if>
+      <if test="record.account != null" >
+        account = #{record.account,jdbcType=VARCHAR},
+      </if>
       <if test="record.phonum != null" >
         phonum = #{record.phonum,jdbcType=VARCHAR},
       </if>
@@ -255,6 +274,9 @@
       </if>
       <if test="record.score != null" >
         score = #{record.score,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeid != null" >
+        gradeid = #{record.gradeid,jdbcType=INTEGER},
       </if>
       <if test="record.picnum != null" >
         picnum = #{record.picnum,jdbcType=INTEGER},
@@ -281,12 +303,14 @@
     set id = #{record.id,jdbcType=INTEGER},
       sex = #{record.sex,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
+      account = #{record.account,jdbcType=VARCHAR},
       phonum = #{record.phonum,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
       salt = #{record.salt,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
       time = #{record.time,jdbcType=TIMESTAMP},
       score = #{record.score,jdbcType=INTEGER},
+      gradeid = #{record.gradeid,jdbcType=INTEGER},
       picnum = #{record.picnum,jdbcType=INTEGER},
       collectnum = #{record.collectnum,jdbcType=INTEGER},
       collectPicnum = #{record.collectpicnum,jdbcType=INTEGER},
@@ -305,6 +329,9 @@
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
       <if test="phonum != null" >
         phonum = #{phonum,jdbcType=VARCHAR},
       </if>
@@ -322,6 +349,9 @@
       </if>
       <if test="score != null" >
         score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="gradeid != null" >
+        gradeid = #{gradeid,jdbcType=INTEGER},
       </if>
       <if test="picnum != null" >
         picnum = #{picnum,jdbcType=INTEGER},
@@ -345,12 +375,14 @@
     update user
     set sex = #{sex,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
       phonum = #{phonum,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       salt = #{salt,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP},
       score = #{score,jdbcType=INTEGER},
+      gradeid = #{gradeid,jdbcType=INTEGER},
       picnum = #{picnum,jdbcType=INTEGER},
       collectnum = #{collectnum,jdbcType=INTEGER},
       collectPicnum = #{collectpicnum,jdbcType=INTEGER},

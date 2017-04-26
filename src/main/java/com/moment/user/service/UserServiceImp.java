@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.moment.common.util.MD5Util;
 import com.moment.user.dao.UserVOMapper;
@@ -21,6 +22,7 @@ public class UserServiceImp implements UserService {
 		String salt=UUID.randomUUID().toString();
 		user.setSalt(salt);
 		user.setPassword(MD5Util.md5(user.getPassword()+salt));	//密码加盐
+		user.setGradeid(1);//添加等级为LV0
 		return mapper.insertSelective(user);
 	}
 

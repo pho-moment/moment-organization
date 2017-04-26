@@ -326,6 +326,76 @@ public class UserVOExample implements Serializable {
             return (Criteria) this;
         }
 
+        public Criteria andAccountIsNull() {
+            addCriterion("account is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIsNotNull() {
+            addCriterion("account is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountEqualTo(String value) {
+            addCriterion("account =", value, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNotEqualTo(String value) {
+            addCriterion("account <>", value, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountGreaterThan(String value) {
+            addCriterion("account >", value, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountGreaterThanOrEqualTo(String value) {
+            addCriterion("account >=", value, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountLessThan(String value) {
+            addCriterion("account <", value, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountLessThanOrEqualTo(String value) {
+            addCriterion("account <=", value, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountLike(String value) {
+            addCriterion("account like", value, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNotLike(String value) {
+            addCriterion("account not like", value, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIn(List<String> values) {
+            addCriterion("account in", values, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNotIn(List<String> values) {
+            addCriterion("account not in", values, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountBetween(String value1, String value2) {
+            addCriterion("account between", value1, value2, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNotBetween(String value1, String value2) {
+            addCriterion("account not between", value1, value2, "account");
+            return (Criteria) this;
+        }
+
         public Criteria andPhonumIsNull() {
             addCriterion("phonum is null");
             return (Criteria) this;
@@ -723,6 +793,66 @@ public class UserVOExample implements Serializable {
 
         public Criteria andScoreNotBetween(Integer value1, Integer value2) {
             addCriterion("score not between", value1, value2, "score");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeidIsNull() {
+            addCriterion("gradeid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeidIsNotNull() {
+            addCriterion("gradeid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeidEqualTo(Integer value) {
+            addCriterion("gradeid =", value, "gradeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeidNotEqualTo(Integer value) {
+            addCriterion("gradeid <>", value, "gradeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeidGreaterThan(Integer value) {
+            addCriterion("gradeid >", value, "gradeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("gradeid >=", value, "gradeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeidLessThan(Integer value) {
+            addCriterion("gradeid <", value, "gradeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeidLessThanOrEqualTo(Integer value) {
+            addCriterion("gradeid <=", value, "gradeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeidIn(List<Integer> values) {
+            addCriterion("gradeid in", values, "gradeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeidNotIn(List<Integer> values) {
+            addCriterion("gradeid not in", values, "gradeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeidBetween(Integer value1, Integer value2) {
+            addCriterion("gradeid between", value1, value2, "gradeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeidNotBetween(Integer value1, Integer value2) {
+            addCriterion("gradeid not between", value1, value2, "gradeid");
             return (Criteria) this;
         }
 

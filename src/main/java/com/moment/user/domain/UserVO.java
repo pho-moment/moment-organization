@@ -10,6 +10,8 @@ public class UserVO implements Serializable {
 
     private String name;
 
+    private String account;
+
     private String phonum;
 
     private String email;
@@ -21,6 +23,8 @@ public class UserVO implements Serializable {
     private Date time;
 
     private Integer score;
+
+    private Integer gradeid;
 
     private Integer picnum;
 
@@ -56,6 +60,14 @@ public class UserVO implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account == null ? null : account.trim();
     }
 
     public String getPhonum() {
@@ -104,6 +116,14 @@ public class UserVO implements Serializable {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+    public Integer getGradeid() {
+        return gradeid;
+    }
+
+    public void setGradeid(Integer gradeid) {
+        this.gradeid = gradeid;
     }
 
     public Integer getPicnum() {
@@ -155,12 +175,14 @@ public class UserVO implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", sex=").append(sex);
         sb.append(", name=").append(name);
+        sb.append(", account=").append(account);
         sb.append(", phonum=").append(phonum);
         sb.append(", email=").append(email);
         sb.append(", salt=").append(salt);
         sb.append(", password=").append(password);
         sb.append(", time=").append(time);
         sb.append(", score=").append(score);
+        sb.append(", gradeid=").append(gradeid);
         sb.append(", picnum=").append(picnum);
         sb.append(", collectnum=").append(collectnum);
         sb.append(", collectpicnum=").append(collectpicnum);
@@ -186,12 +208,14 @@ public class UserVO implements Serializable {
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getAccount() == null ? other.getAccount() == null : this.getAccount().equals(other.getAccount()))
             && (this.getPhonum() == null ? other.getPhonum() == null : this.getPhonum().equals(other.getPhonum()))
             && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
             && (this.getSalt() == null ? other.getSalt() == null : this.getSalt().equals(other.getSalt()))
             && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
             && (this.getTime() == null ? other.getTime() == null : this.getTime().equals(other.getTime()))
             && (this.getScore() == null ? other.getScore() == null : this.getScore().equals(other.getScore()))
+            && (this.getGradeid() == null ? other.getGradeid() == null : this.getGradeid().equals(other.getGradeid()))
             && (this.getPicnum() == null ? other.getPicnum() == null : this.getPicnum().equals(other.getPicnum()))
             && (this.getCollectnum() == null ? other.getCollectnum() == null : this.getCollectnum().equals(other.getCollectnum()))
             && (this.getCollectpicnum() == null ? other.getCollectpicnum() == null : this.getCollectpicnum().equals(other.getCollectpicnum()))
@@ -206,12 +230,14 @@ public class UserVO implements Serializable {
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getSex() == null) ? 0 : getSex().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getAccount() == null) ? 0 : getAccount().hashCode());
         result = prime * result + ((getPhonum() == null) ? 0 : getPhonum().hashCode());
         result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
         result = prime * result + ((getSalt() == null) ? 0 : getSalt().hashCode());
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
         result = prime * result + ((getTime() == null) ? 0 : getTime().hashCode());
         result = prime * result + ((getScore() == null) ? 0 : getScore().hashCode());
+        result = prime * result + ((getGradeid() == null) ? 0 : getGradeid().hashCode());
         result = prime * result + ((getPicnum() == null) ? 0 : getPicnum().hashCode());
         result = prime * result + ((getCollectnum() == null) ? 0 : getCollectnum().hashCode());
         result = prime * result + ((getCollectpicnum() == null) ? 0 : getCollectpicnum().hashCode());

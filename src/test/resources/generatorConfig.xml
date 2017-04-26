@@ -34,21 +34,21 @@
 		</jdbcConnection>
 
 		<!-- model的配置 -->
-		<javaModelGenerator targetPackage="com.moment.user.domain"
+		<javaModelGenerator targetPackage="com.moment.report.domain"
 			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
 		<!-- mybatis的xml的配置 --> 	
-		<sqlMapGenerator targetPackage="com.moment.user.dao"
+		<sqlMapGenerator targetPackage="com.moment.report.dao"
 			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
 		<!-- mapper的配置 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.moment.user.dao" targetProject="src/main/java">
+			targetPackage="com.moment.report.dao" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		

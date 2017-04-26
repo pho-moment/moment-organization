@@ -185,73 +185,73 @@ public class GradeVOExample implements Serializable {
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNull() {
-            addCriterion("name is null");
+        public Criteria andGradeIsNull() {
+            addCriterion("grade is null");
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNotNull() {
-            addCriterion("name is not null");
+        public Criteria andGradeIsNotNull() {
+            addCriterion("grade is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNameEqualTo(String value) {
-            addCriterion("name =", value, "name");
+        public Criteria andGradeEqualTo(String value) {
+            addCriterion("grade =", value, "grade");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotEqualTo(String value) {
-            addCriterion("name <>", value, "name");
+        public Criteria andGradeNotEqualTo(String value) {
+            addCriterion("grade <>", value, "grade");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThan(String value) {
-            addCriterion("name >", value, "name");
+        public Criteria andGradeGreaterThan(String value) {
+            addCriterion("grade >", value, "grade");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("name >=", value, "name");
+        public Criteria andGradeGreaterThanOrEqualTo(String value) {
+            addCriterion("grade >=", value, "grade");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThan(String value) {
-            addCriterion("name <", value, "name");
+        public Criteria andGradeLessThan(String value) {
+            addCriterion("grade <", value, "grade");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("name <=", value, "name");
+        public Criteria andGradeLessThanOrEqualTo(String value) {
+            addCriterion("grade <=", value, "grade");
             return (Criteria) this;
         }
 
-        public Criteria andNameLike(String value) {
-            addCriterion("name like", value, "name");
+        public Criteria andGradeLike(String value) {
+            addCriterion("grade like", value, "grade");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotLike(String value) {
-            addCriterion("name not like", value, "name");
+        public Criteria andGradeNotLike(String value) {
+            addCriterion("grade not like", value, "grade");
             return (Criteria) this;
         }
 
-        public Criteria andNameIn(List<String> values) {
-            addCriterion("name in", values, "name");
+        public Criteria andGradeIn(List<String> values) {
+            addCriterion("grade in", values, "grade");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotIn(List<String> values) {
-            addCriterion("name not in", values, "name");
+        public Criteria andGradeNotIn(List<String> values) {
+            addCriterion("grade not in", values, "grade");
             return (Criteria) this;
         }
 
-        public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("name between", value1, value2, "name");
+        public Criteria andGradeBetween(String value1, String value2) {
+            addCriterion("grade between", value1, value2, "grade");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("name not between", value1, value2, "name");
+        public Criteria andGradeNotBetween(String value1, String value2) {
+            addCriterion("grade not between", value1, value2, "grade");
             return (Criteria) this;
         }
 
@@ -322,6 +322,126 @@ public class GradeVOExample implements Serializable {
 
         public Criteria andDescriptionNotBetween(String value1, String value2) {
             addCriterion("description not between", value1, value2, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicnumIsNull() {
+            addCriterion("picnum is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicnumIsNotNull() {
+            addCriterion("picnum is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicnumEqualTo(Integer value) {
+            addCriterion("picnum =", value, "picnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicnumNotEqualTo(Integer value) {
+            addCriterion("picnum <>", value, "picnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicnumGreaterThan(Integer value) {
+            addCriterion("picnum >", value, "picnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicnumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("picnum >=", value, "picnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicnumLessThan(Integer value) {
+            addCriterion("picnum <", value, "picnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicnumLessThanOrEqualTo(Integer value) {
+            addCriterion("picnum <=", value, "picnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicnumIn(List<Integer> values) {
+            addCriterion("picnum in", values, "picnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicnumNotIn(List<Integer> values) {
+            addCriterion("picnum not in", values, "picnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicnumBetween(Integer value1, Integer value2) {
+            addCriterion("picnum between", value1, value2, "picnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicnumNotBetween(Integer value1, Integer value2) {
+            addCriterion("picnum not between", value1, value2, "picnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadnumIsNull() {
+            addCriterion("uploadnum is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadnumIsNotNull() {
+            addCriterion("uploadnum is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadnumEqualTo(Integer value) {
+            addCriterion("uploadnum =", value, "uploadnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadnumNotEqualTo(Integer value) {
+            addCriterion("uploadnum <>", value, "uploadnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadnumGreaterThan(Integer value) {
+            addCriterion("uploadnum >", value, "uploadnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadnumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("uploadnum >=", value, "uploadnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadnumLessThan(Integer value) {
+            addCriterion("uploadnum <", value, "uploadnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadnumLessThanOrEqualTo(Integer value) {
+            addCriterion("uploadnum <=", value, "uploadnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadnumIn(List<Integer> values) {
+            addCriterion("uploadnum in", values, "uploadnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadnumNotIn(List<Integer> values) {
+            addCriterion("uploadnum not in", values, "uploadnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadnumBetween(Integer value1, Integer value2) {
+            addCriterion("uploadnum between", value1, value2, "uploadnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUploadnumNotBetween(Integer value1, Integer value2) {
+            addCriterion("uploadnum not between", value1, value2, "uploadnum");
             return (Criteria) this;
         }
     }
