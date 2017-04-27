@@ -1,5 +1,10 @@
 package com.moment.user.service;
 
+import java.util.List;
+
+import com.moment.datatables.domain.DataTablesRequest;
+import com.moment.datatables.domain.DataTablesResponse;
+import com.moment.grade.domain.GradeVO;
 import com.moment.user.domain.UserVO;
 
 public interface UserService {
@@ -10,5 +15,13 @@ public interface UserService {
 	public UserVO getUserById(Integer id) throws Throwable;
 	
 	public int updateUser(UserVO user) throws Throwable;
+	public UserVO getUserByAccount(String account) throws Throwable;
+	public List<UserVO> getUserByName(String name) throws Throwable;
+	/**
+	 * 使用datatables的分页查询
+	 * @param request
+	 * @return
+	 */
+	public DataTablesResponse<UserVO> list(DataTablesRequest request) throws Throwable;
 	
 }
