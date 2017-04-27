@@ -20,6 +20,7 @@ public class ConfigUtil {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			// 注释
 		}
 	}
 	public static String getValue(String key){
