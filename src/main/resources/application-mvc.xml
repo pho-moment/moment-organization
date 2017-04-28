@@ -54,7 +54,20 @@
 		<property name="contentType" value="text/html; charset=utf-8" />
 		<property name="cache" value="false" />
 	</bean>
-	
+	<!-- 拦截器配置 -->
+	<mvc:interceptors>
+		<bean class="com.moment.login.interceptor.LoginHandlerInterceptor">
+		<!-- 配置拦截器的属性，属性注入的方式 -->
+			<property name="allowUris">
+				<list>
+					<value>login.action</value>
+					<value>dologin.action</value>
+					<value>register.action</value>
+					<value>doregister.action</value>
+				</list>
+			</property>
+		</bean>
+	</mvc:interceptors>
 	<!-- 异常处理 -->
 	<!-- <bean id="exceptionResolver"
 		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">

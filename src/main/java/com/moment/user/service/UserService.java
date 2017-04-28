@@ -17,6 +17,8 @@ public interface UserService {
 	public int updateUser(UserVO user) throws Throwable;
 	public UserVO getUserByAccount(String account) throws Throwable;
 	public List<UserVO> getUserByName(String name) throws Throwable;
+	//登陆检测
+	public UserVO checkLogin(String account,String password) throws Throwable;
 	/**
 	 * 使用datatables的分页查询
 	 * @param request
