@@ -1,14 +1,24 @@
 package com.moment.pic.service;
 
+import java.io.File;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.moment.common.domain.JsonResult;
+import com.moment.common.util.ConfigUtil;
 import com.moment.common.util.SearchConditionUtils;
+import com.moment.common.util.SpringUtil;
 import com.moment.datatables.domain.DataTablesRequest;
 import com.moment.datatables.domain.DataTablesResponse;
 import com.moment.pic.dao.PicVOMapper;
 import com.moment.pic.domain.PicVO;
 import com.moment.pic.domain.PicVOExample;
+import com.qiniu.common.QiniuException;
+import com.qiniu.http.Response;
+import com.qiniu.storage.UploadManager;
+import com.qiniu.util.Auth;
 @Service
 public class PicServiceImpl implements PicService{
 	@Autowired
@@ -43,5 +53,24 @@ public class PicServiceImpl implements PicService{
 		response.setData(mapper.selectByExample(example));
 		return response;
 	}
+
+	@Override
+	public Response doUpload(byte[] b, PicVO pic) throws Throwable {
+		String bucketname = "moment" ;
+		String fileName = UUID.randomUUID().toString() ;
+		pic.setPicpath(ConfigUtil.getValue("uri")+fileName);
+		/*pic.setName("test");
+		pic.setUserid(01);*/
+		Auth auth = Auth.create(ConfigUtil.getValue("AccessKey"), ConfigUtil.getValue("SecretKey")) ;
+		String token = auth.uploadToken(bucketname);
+		UploadManager manager = new UploadManager();  
+		Response response = manager.put(b, fileName, token);
+		if(response.isOK()){
+			mapper.insertSelective(pic) ;
+		}
+		return response;
+		
+	}
+	
 
 }
