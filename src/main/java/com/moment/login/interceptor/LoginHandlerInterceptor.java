@@ -47,7 +47,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor{
 				return true;
 			}else{
 				//返回登录页
-				httpRes.sendRedirect(httpReq.getContextPath()+"/login.action");
+				httpRes.sendRedirect(httpReq.getContextPath()+"user/login.action");
 				return false;
 			}
 			

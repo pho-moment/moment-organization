@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class CodeController {
     private int width = 90;//验证码宽度
-    private int height = 40;//验证码高度
+    private int height = 30;//验证码高度
     private int codeCount = 4;//验证码个数
     private int lineCount = 19;//混淆线个数
 

@@ -26,11 +26,7 @@ public class UserController {
 	private UserService service;
 	@Autowired
 	private GradeService gservice;
-	@RequestMapping("/register")
-	public String register(){
-		return "user/register";
-	}
-	
+		
 	
 	@RequestMapping("/doregister")
 	public ModelAndView doRegister(HttpServletRequest request,UserVO user){
@@ -63,6 +59,13 @@ public class UserController {
 			return mv;
 		}
 		
+		//获取用户输入的验证码
+		String code = request.getParameter("code");
+		System.out.println("用户输入的验证码："+code);
+		//获取的验证码
+		String sessionCode = (String)request.getSession().getAttribute("sessionCode");
+		System.out.println("客户端保存的验证码："+sessionCode);
+		if(sessionCode.equalsIgnoreCase(code)){
 			mv.setViewName("user/login");
 			request.setAttribute("msg", "注册成功，请登录！");
 			try {
@@ -70,9 +73,13 @@ public class UserController {
 			} catch (Throwable e) {
 				e.printStackTrace();
 				mv.setViewName("user/register");
-				request.setAttribute("msg", "注册失败！");
+		        request.setAttribute("msg", "注册失败！");
 			}
-			return mv;
+		}else{
+			mv.setViewName("user/register");
+			request.setAttribute("msg", "验证码错误！");
+		}
+		return mv;
 	}
 	
 	@RequestMapping("/login")
@@ -81,7 +88,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/dologin")
-	public JsonResult doLogin(HttpServletRequest request,UserVO user,HttpSession session,HttpServletResponse response,JsonResult jsonResult,String remember){
+	public Object doLogin(HttpServletRequest request,UserVO user,HttpSession session,HttpServletResponse response,JsonResult jsonResult,String remember){
 		UserVO user1=null;
 		try {
 			user1 = service.checkLogin(user.getAccount(), user.getPassword());
@@ -125,14 +132,25 @@ public class UserController {
 		    //跳转到后台主页，返回验证成功的消息给ajax
 			jsonResult.setMsg("登陆成功");
 			jsonResult.setStatus(1);
-		    
+		    return "user/index";
 		}else{//登录失败
 			jsonResult.setMsg("登录失败");
 			jsonResult.setStatus(0);
+			return jsonResult;
 		}
-		return jsonResult;
 	}
-	
+	@RequestMapping("/index")
+	public String index(){
+		return "user/index";
+	}
+	@RequestMapping("/setting")
+	public String setting(){
+		return "user/setting";
+	}
+	@RequestMapping("/center")
+	public String center(){
+		return "user/center";
+	}
 	@RequestMapping("/list")
 	public String list(HttpSession session,HttpServletRequest request){
 		System.out.println("uri:"+request.getRequestURI());
