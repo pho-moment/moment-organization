@@ -79,7 +79,8 @@
 			</div>
 			<div class="clear"></div>
 			<!--注册表单-->
-			<form action="${path}/user/doregister.action" class="form-horizontal register_form" method="post" role="form">
+			<form id="register_form" action="${path}/user/doregister.action" onsubmit="return checkAccount()&&checkPwd()" 
+			class="form-horizontal register_form" method="post" role="form">
 				<div class="form-group">
 					<label for="regs_account" class="col-sm-12 font_wei color_grey">电子邮箱/手机号码</label><br>
 					<div class="col-sm-12">
@@ -105,10 +106,10 @@
 				<div class="form-group">
 					<label for="code" class="col-sm-12 font_wei color_grey">输入验证码</label><br>
 					<div class="col-sm-6">
-						<input name="code" type="text" class="form-control register_text" id="code">
+						<input name="code" type="text" class="form-control register_text">
 					</div>
 					<div class="col-sm-6">
-						<img src="${path}/code/<%=new Date() %>.action" alt="code" />
+						<img id="code" src="${path}/code/<%=new Date() %>.action" alt="code"  onclick="refreshCode()"/>
 					</div>
 				</div>
 				<div class="form-group">

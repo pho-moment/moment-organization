@@ -1155,6 +1155,66 @@ public class UserVOExample implements Serializable {
             addCriterion("concernnum not between", value1, value2, "concernnum");
             return (Criteria) this;
         }
+
+        public Criteria andLikenumIsNull() {
+            addCriterion("likenum is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikenumIsNotNull() {
+            addCriterion("likenum is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikenumEqualTo(Integer value) {
+            addCriterion("likenum =", value, "likenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikenumNotEqualTo(Integer value) {
+            addCriterion("likenum <>", value, "likenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikenumGreaterThan(Integer value) {
+            addCriterion("likenum >", value, "likenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikenumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("likenum >=", value, "likenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikenumLessThan(Integer value) {
+            addCriterion("likenum <", value, "likenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikenumLessThanOrEqualTo(Integer value) {
+            addCriterion("likenum <=", value, "likenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikenumIn(List<Integer> values) {
+            addCriterion("likenum in", values, "likenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikenumNotIn(List<Integer> values) {
+            addCriterion("likenum not in", values, "likenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikenumBetween(Integer value1, Integer value2) {
+            addCriterion("likenum between", value1, value2, "likenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikenumNotBetween(Integer value1, Integer value2) {
+            addCriterion("likenum not between", value1, value2, "likenum");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria implements Serializable {

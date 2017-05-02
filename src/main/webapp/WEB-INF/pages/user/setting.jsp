@@ -13,27 +13,27 @@
     <link rel="stylesheet" href="${path}/resources/css/setting.css" />
     <style type="text/css">
     	.exit{
-            background: url(fonts/tuichu.svg) no-repeat 4px 5px;
+            background: url(${path}/resources/fonts/tuichu.svg) no-repeat 4px 5px;
             background-size: 19px 24px;
             width: 35px;
         }
         .inform{
-            background: url(fonts/inform.svg) no-repeat 4px 5px;
+            background: url(${path}/resources/fonts/inform.svg) no-repeat 4px 5px;
             background-size: 19px 24px;
             width: 35px;
         }
         .user{
-            background: url(fonts/user.svg) no-repeat 4px 5px;
+            background: url(${path}/resources/fonts/user.svg) no-repeat 4px 5px;
             background-size: 19px 24px;
             width: 35px;
         }
         .setting1{
-            background: url(fonts/setting1.svg) no-repeat 4px 5px;
+            background: url(${path}/resources/fonts/setting1.svg) no-repeat 4px 5px;
             background-size: 19px 24px;
             width: 35px;
         }
          .like{
-            background: url(fonts/xihuan.svg) no-repeat 1px 3px;
+            background: url(${path}/resources/fonts/xihuan.svg) no-repeat 1px 3px;
             background-size:  16px 16px;
             width: 35px;
             display: inline-block;
@@ -43,7 +43,7 @@
             cursor: pointer;
         }
         .collect{
-           background: url(fonts/shoucang.svg) no-repeat 0px -1px;
+           background: url(${path}/resources/fonts/shoucang.svg) no-repeat 0px -1px;
             background-size: 18px 26px;
             width: 35px;
             display: inline-block;
@@ -53,7 +53,7 @@
             cursor: pointer;
         }
         .comment{
-            background: url(fonts/pinglun.svg) no-repeat -1px 1px;
+            background: url(${path}/resources/fonts/pinglun.svg) no-repeat -1px 1px;
             background-size: 19px 24px;
             width: 35px;
             display: inline-block;
@@ -70,10 +70,10 @@
         <div>
              <ul>
             <li>
-                <a href="index.html"><img src="img/logo.png" class="logo"></a>
+                <a href="${path}/user/index.action"><img src="${path}/resources/img/logo.png" class="logo"></a>
             </li>
             <li>
-                <a href="" >首页</a>
+                <a href="${path}/user/index.action">首页</a>
             </li>
             <li>
                 <a href="">外拍</a>
@@ -85,19 +85,19 @@
                 <a href="">干货</a>
             </li>
             <li class="userCenter">
-                <img src="img/user.jpg" class="userImg userImgCenter">
+                <img src="${path}/resources/img/user.jpg" class="userImg userImgCenter">
                     <ul class="centerList hidden">
                         <li>
-                            <a href class="user">个人中心</a>
+                            <a href="${path}/user/center.action" class="user">个人中心</a>
                         </li>
                         <li>
                             <a href class="inform">重要通知</a>
                         </li>
                         <li>
-                            <a href class="setting1">账号设置</a>
+                            <a href="${path}/user/setting.action" class="setting1">账号设置</a>
                         </li>
                         <li>
-                            <a href class="exit">退出账号</a>
+                            <a href="${path}/user/logout.action" class="exit">退出账号</a>
                         </li>
                     </ul>
             </li>
@@ -112,7 +112,7 @@
     <form enctype="multipart/form-data" method="post">
         <div class="form_group">
             <label>用户昵称</label>
-            <input type="text" placeholder="请输入用户昵称">
+            <input type="text" placeholder="请输入用户昵称" value="${user.name }">
             
         </div>
         <hr>
@@ -122,7 +122,7 @@
 
              <!-- Current avatar -->
             <div class="avatar-view" title="Change the avatar">
-                <img src="img/user.jpg" alt="Avatar">
+                <img src="${path}/resources/img/user.jpg" alt="Avatar">
             </div>
 
             <!-- Cropping modal -->
@@ -132,7 +132,7 @@
                         <form class="avatar-form" action="crop.php" enctype="multipart/form-data" method="post">
                             <div class="modal-header">
                                 <button class="close" data-dismiss="modal" type="button">&times;</button>
-                                <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
+                                <h4 class="modal-title" id="avatar-modal-label">上传头像</h4>
                             </div>
                             <div class="modal-body">
                                 <div class="avatar-body">
@@ -141,7 +141,7 @@
                                 <div class="avatar-upload">
                                     <input class="avatar-src" name="avatar_src" type="hidden">
                                     <input class="avatar-data" name="avatar_data" type="hidden">
-                                    <label for="avatarInput">Local upload</label>
+                                    <label for="avatarInput" style="width:160px;">选择头像</label>
                                     <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
                                 </div>
 
@@ -186,13 +186,13 @@
          <hr>
         <div class="form_group">
             <label>绑定邮箱</label>
-            <input type="text" placeholder="未绑定" disabled="disabled">
+            <input type="text" placeholder="未绑定" disabled="disabled" value="${user.email }">
             
         </div>
         <hr>
         <div class="form_group">
             <label>绑定手机</label>
-            <input type="text" placeholder="未绑定" disabled="disabled">
+            <input type="text" placeholder="未绑定" disabled="disabled" value="${user.phonum }">
            
         </div>
          <hr>

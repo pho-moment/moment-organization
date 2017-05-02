@@ -88,12 +88,11 @@ public class UserController {
 	}
 	
 	@RequestMapping("/dologin")
-	public Object doLogin(HttpServletRequest request,UserVO user,HttpSession session,HttpServletResponse response,JsonResult jsonResult,String remember){
+	public String doLogin(HttpServletRequest request,UserVO user,HttpSession session,HttpServletResponse response,JsonResult jsonResult,String remember){
 		UserVO user1=null;
 		try {
 			user1 = service.checkLogin(user.getAccount(), user.getPassword());
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(user1!=null){//登录成功
@@ -132,11 +131,16 @@ public class UserController {
 		    //跳转到后台主页，返回验证成功的消息给ajax
 			jsonResult.setMsg("登陆成功");
 			jsonResult.setStatus(1);
-		    return "user/index";
+
+			System.out.println(user1+"登陆了");
+		    return "redirect:index.action";
+		    
+		    
 		}else{//登录失败
 			jsonResult.setMsg("登录失败");
 			jsonResult.setStatus(0);
-			return jsonResult;
+			System.out.println("登陆失败");
+			return "redirect:login.action";
 		}
 	}
 	@RequestMapping("/index")
@@ -150,6 +154,15 @@ public class UserController {
 	@RequestMapping("/center")
 	public String center(){
 		return "user/center";
+	}
+	@RequestMapping("/collect")
+	public String collect(){
+		return "user/collect";
+	}
+	@RequestMapping("/logout")
+	public String logout(HttpSession session){
+		session.invalidate();
+		return "redirect:login.action";
 	}
 	@RequestMapping("/list")
 	public String list(HttpSession session,HttpServletRequest request){

@@ -95,10 +95,10 @@
         <div>
              <ul>
             <li>
-                <a href="index.html"><img src="${path}/resources/img/logo.png" class="logo"></a>
+                <a href="${path}/user/index.action"><img src="${path}/resources/img/logo.png" class="logo"></a>
             </li>
             <li>
-                <a href="">首页</a>
+                <a href="${path}/user/index.action">首页</a>
             </li>
             <li>
                 <a href="">外拍</a>
@@ -113,16 +113,16 @@
                 <img src="${path}/resources/img/user.jpg" class="userImg userImgCenter">
                     <ul class="centerList hidden">
                         <li>
-                            <a href class="user">个人中心</a>
+                            <a href="${path}/user/center.action" class="user">个人中心</a>
                         </li>
                         <li>
                             <a href class="inform">重要通知</a>
                         </li>
                         <li>
-                            <a href class="setting1">账号设置</a>
+                            <a href="${path}/user/setting.action" class="setting1">账号设置</a>
                         </li>
                         <li>
-                            <a href class="exit">退出账号</a>
+                            <a href="${path}/user/logout.action" class="exit">退出账号</a>
                         </li>
                     </ul>
             </li>
@@ -169,20 +169,21 @@
                 <div>
                     <div class="userSetting">
                         <a href=""><img src="${path}/resources/img/user.jpg" class="userImg"></a>
-                        <a href=""><button class="setting"> </button></a>
+                        <span class="username">不醉不会</span>
+                        <a href="${path}/user/setting.action"><button class="setting"> </button></a>
                     </div>
                     <div class="user_detail">
                         <ul>
                             <li>
-                                <h3>12</h3>
+                                <h3>${user.collectpicnum}</h3>
                                 <p>收藏</p>
                             </li>
                             <li>
-                                <h3>13</h3>
+                                <h3>${user.concernnum}</h3>
                                 <p>关注</p>
                             </li>
                             <li>
-                                <h3>13</h3>
+                                <h3>${user.fansnum}</h3>
                                 <p>粉丝</p>
                             </li>
                         </ul>

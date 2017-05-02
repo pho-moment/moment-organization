@@ -87,7 +87,7 @@ public class UserServiceImp implements UserService {
 	public UserVO checkLogin(String account, String password) throws Throwable {
 		UserVO user=this.getUserByAccount(account);
 		if(user!=null){
-			String inputPwd=MD5Util.md5(password+user.getAccount());
+			String inputPwd=MD5Util.md5(password+user.getSalt());
 			if(user.getPassword().equals(inputPwd)){//验证通过
 				return user;
 			}

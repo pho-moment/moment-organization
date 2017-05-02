@@ -36,6 +36,8 @@ public class UserVO implements Serializable {
 
     private Integer concernnum;
 
+    private Integer likenum;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -166,6 +168,14 @@ public class UserVO implements Serializable {
         this.concernnum = concernnum;
     }
 
+    public Integer getLikenum() {
+        return likenum;
+    }
+
+    public void setLikenum(Integer likenum) {
+        this.likenum = likenum;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -188,6 +198,7 @@ public class UserVO implements Serializable {
         sb.append(", collectpicnum=").append(collectpicnum);
         sb.append(", fansnum=").append(fansnum);
         sb.append(", concernnum=").append(concernnum);
+        sb.append(", likenum=").append(likenum);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -220,7 +231,8 @@ public class UserVO implements Serializable {
             && (this.getCollectnum() == null ? other.getCollectnum() == null : this.getCollectnum().equals(other.getCollectnum()))
             && (this.getCollectpicnum() == null ? other.getCollectpicnum() == null : this.getCollectpicnum().equals(other.getCollectpicnum()))
             && (this.getFansnum() == null ? other.getFansnum() == null : this.getFansnum().equals(other.getFansnum()))
-            && (this.getConcernnum() == null ? other.getConcernnum() == null : this.getConcernnum().equals(other.getConcernnum()));
+            && (this.getConcernnum() == null ? other.getConcernnum() == null : this.getConcernnum().equals(other.getConcernnum()))
+            && (this.getLikenum() == null ? other.getLikenum() == null : this.getLikenum().equals(other.getLikenum()));
     }
 
     @Override
@@ -243,6 +255,7 @@ public class UserVO implements Serializable {
         result = prime * result + ((getCollectpicnum() == null) ? 0 : getCollectpicnum().hashCode());
         result = prime * result + ((getFansnum() == null) ? 0 : getFansnum().hashCode());
         result = prime * result + ((getConcernnum() == null) ? 0 : getConcernnum().hashCode());
+        result = prime * result + ((getLikenum() == null) ? 0 : getLikenum().hashCode());
         return result;
     }
 }

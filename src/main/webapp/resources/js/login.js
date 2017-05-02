@@ -43,7 +43,7 @@ function checkPwd(){
 function moveout(){
 
     var movebox = document.getElementById("register_box");
-    var iTimer = null
+    var iTimer = null;
     var screenwidth = document.body.clientWidth;
     var boxwidth = movebox.offsetWidth;
     var blackbox = document.getElementById("blackbox");
@@ -82,4 +82,17 @@ function movein(){
 
     }, 30);
 
+}
+
+function refreshCode(){
+	/*var code = document.getElementById("code");
+	var url = code.src;
+    url = url.substr(0,url.lastIndexOf('/')+1);
+    url = url + (new Date()).valueOf()+".action";
+    code.src = url;*/
+	var code = $("#code");
+	var url = code.prop('src');
+    url = url.substr(0,url.lastIndexOf('/')+1);
+    url = url + (new Date()).valueOf()+".action";
+    code.prop('src',url);
 }

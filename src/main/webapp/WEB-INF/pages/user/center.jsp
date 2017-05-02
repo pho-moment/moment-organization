@@ -65,14 +65,14 @@
 </head>
 <body>
 <div class="top_content">
-    <header>
+       <header>
         <div>
              <ul>
             <li>
-                <a href="index.html"><img src="${path}/resources/img/logo.png" class="logo"></a>
+                <a href="${path}/user/index.action"><img src="${path}/resources/img/logo.png" class="logo"></a>
             </li>
             <li>
-                <a href="" >首页</a>
+                <a href="${path}/user/index.action">首页</a>
             </li>
             <li>
                 <a href="">外拍</a>
@@ -87,16 +87,16 @@
                 <img src="${path}/resources/img/user.jpg" class="userImg userImgCenter">
                     <ul class="centerList hidden">
                         <li>
-                            <a href class="user">个人中心</a>
+                            <a href="${path}/user/center.action" class="user">个人中心</a>
                         </li>
                         <li>
                             <a href class="inform">重要通知</a>
                         </li>
                         <li>
-                            <a href class="setting1">账号设置</a>
+                            <a href="${path}/user/setting.action" class="setting1">账号设置</a>
                         </li>
                         <li>
-                            <a href class="exit">退出账号</a>
+                            <a href="${path}/user/logout.action" class="exit">退出账号</a>
                         </li>
                     </ul>
             </li>
@@ -113,25 +113,25 @@
 				<div>
 					<ul class="imgBelow">
 						<li>
-							<span class="fansnum">12</span><p>粉丝</p>
+							<span class="fansnum">${user.fansnum }</span><p>粉丝</p>
 						</li>
 						<li>
-							<span class="concernnum">13</span><p>关注</p>
+							<span class="concernnum">${user.concernnum }</span><p>关注</p>
 						</li>
 					</ul>
 				</div>
 			</div>
 			<div>
-				<h4 class="username">用户名称</h4>
-				<button>账号设置</button>
+				<h4 class="username">${user.name }</h4>
+				<a href="${path}/user/setting.action"><button>账号设置</button></a>
 			</div>
 		</div>
 	</div>
 	<div class="user_detail_block">
 			<ul  class="user_detail_list">
-				<li id="picnum" class="grey"><span class="picnum">13</span>图库</li>
-				<li id="collnum"><span class="collectnum">14</span>收藏库</li>
-				<li id="likenum"><span class="likenum">14</span>喜欢</li>
+				<li id="picnum" class="grey"><span class="picnum">${user.picnum }</span>图库</li>
+				<li id="collnum"><span class="collectnum">${user.collectnum }</span>收藏库</li>
+				<li id="likenum"><span class="likenum">${user.likenum }</span>喜欢</li>
 			</ul>
 		</div>
 	<!--图库中心-->

@@ -68,9 +68,6 @@
 						<value>dologin.action</value>
 						<value>register.action</value>
 						<value>doregister.action</value>
-						<value>index.action</value>
-						<value>center.action</value>
-						<value>setting.action</value>
 					</list>
 				</property>
 			</bean>
