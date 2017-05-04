@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
             background-size: 25px 23px;
         }
         .setting {
-            background: url(${path}/resources/userfonts/shezhi.svg) no-repeat 2px 13px;
+            background: url(${path}/resources/user/fonts/shezhi.svg) no-repeat 2px 13px;
             background-size: 29px 28px;
             width: 35px;
             height: 55px;
@@ -109,7 +110,10 @@
             <li>
                 <a href="">干货</a>
             </li>
-            <li class="userCenter">
+            <c:choose>
+
+   				<c:when test="${sessionScope.user!=null}"> 
+   					<li class="userCenter">
                 <img src="${path}/resources/user/img/user.jpg" class="userImg userImgCenter">
                     <ul class="centerList hidden">
                         <li>
@@ -125,7 +129,14 @@
                             <a href="${path}/user/logout.action" class="exit">退出账号</a>
                         </li>
                     </ul>
-            </li>
+           		 </li>
+   				</c:when>
+   
+   				<c:otherwise>  
+   				<li><a href="${path}/user/login.action">登陆</a>&nbsp;/&nbsp;<a href="${path}/user/login.action">注册</a></li>
+  				</c:otherwise>
+  
+			</c:choose>
         </ul>
         </div>
        
@@ -150,6 +161,7 @@
 <div class="container">
     <div class="pic_waterfall">
         <ul>
+        	<c:if test="${sessionScope.user!=null}">
             <li class="user_card">
                 <div class="picCalendar">
                    <img src="${path}/resources/user/img/calendar.jpg">
@@ -253,6 +265,7 @@
 
                 </div>
             </li>
+            </c:if>
             <li>
                 <img src="${path}/resources/user/img/test.jpg">
                 <div class="pic_detail">

@@ -68,7 +68,7 @@
 						<value>dologin.action</value>
 						<value>register.action</value>
 						<value>doregister.action</value>
-						
+						<value>index.action</value>
 					</list>
 				</property>
 			</bean>
