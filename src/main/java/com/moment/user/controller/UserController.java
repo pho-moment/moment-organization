@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.moment.common.domain.JsonResult;
@@ -88,7 +89,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/dologin")
-	public String doLogin(HttpServletRequest request,UserVO user,HttpSession session,HttpServletResponse response,JsonResult jsonResult,String remember){
+	public @ResponseBody JsonResult doLogin(HttpServletRequest request,UserVO user,HttpSession session,HttpServletResponse response,JsonResult jsonResult,String remember){
 		UserVO user1=null;
 		try {
 			user1 = service.checkLogin(user.getAccount(), user.getPassword());
@@ -133,14 +134,14 @@ public class UserController {
 			jsonResult.setStatus(1);
 
 			System.out.println(user1+"登陆了");
-		    return "redirect:index.action";
+		    return jsonResult;
 		    
 		    
 		}else{//登录失败
 			jsonResult.setMsg("登录失败");
 			jsonResult.setStatus(0);
 			System.out.println("登陆失败");
-			return "redirect:login.action";
+			return jsonResult;
 		}
 	}
 	@RequestMapping("/index")

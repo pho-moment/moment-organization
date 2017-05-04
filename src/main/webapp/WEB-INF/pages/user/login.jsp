@@ -16,6 +16,7 @@
     <script src="${path}/resources/user/js/bootstrap.min.js"></script>
     <!-- 引入login.css -->
     <link href="${path}/resources/user/css/login.css" rel="stylesheet">
+     <script src="${path}/resources/user/js/jquery.form.js" type="text/javascript" charset="utf-8"></script>
     <script src="${path}/resources/user/js/login.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
@@ -29,19 +30,20 @@
 		<img src="${path}/resources/user/img/logo.png" class="logo" />
 
 		<!--登录表单-->
-		<form action="${path}/user/dologin.action" class="form-horizontal login_form" method="post" role="form">
+		<!-- action="${path}/user/dologin.action" -->
+		<form class="form-horizontal login_form" method="post" role="form">
+			<div style="color: white;">${msg}</div>
 			<div class="form-group">
 				<label class="col-sm-6 font_wei font_14">邮箱/手机号码</label><br>
 				<div class="col-sm-12">
-					<input type="text" class="form-control textinput" name="account"
-						placeholder="请输入邮箱/手机号码">
+					<input id="login_account" type="text" class="form-control textinput" name="account">
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-6 font_wei font_14">密码</label><br>
 				<div class="col-sm-12">
-					<input type="password" class="form-control textinput"
-						name="password" placeholder="请输入密码">
+					<input id="login_pwd" type="password" class="form-control textinput"
+						name="password">
 				</div>
 			</div>
 			<div class="form-group">
@@ -57,7 +59,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-12">
-					<button type="submit" class="btn btn-default col-sm-12 btn_input">登录</button>
+					<button id="login_submit" type="submit" class="btn btn-default col-sm-12 btn_input">登录</button>
 				</div>
 			</div>
 			<div class="col-sm-offset-3 col-sm-9" style="color: white">
@@ -122,7 +124,59 @@
 		</div>
 	</div>
 
-
-
 </body>
+<script type="text/javascript">
+
+	$("#login_submit").click(function() {
+		var account = $("#login_account").val();
+		var pwd = $("#login_pwd").val();
+		if ((account != null&&account!="") && (pwd != null&&pwd!="")) {
+		/* 	
+			$.ajax({ //一个Ajax过程   
+				type: "post", //以post方式与后台沟通   
+				url : "/moment/user/dologin.action", 
+				//dataType:'json',//返回的值以 JSON方式 解释   
+				//data: 'account='+account+'&password='+password,
+				data:{"account":account,"password":pwd},
+				success: function(data){
+					//如果调用失败   
+					dataobj=JSON.parse(data);
+					if (dataobj.status == 1) {
+						alert("aaa");
+						window.location.href="/moment/user/index.action";
+					}else{
+						alert(dataobj.status);
+					}  
+					
+				},
+				error : function() {
+					alert("登陆失败");
+				}
+				});  
+			 */
+			var options={
+					target:null,
+					url:"/moment/user/dologin.action",
+					success:function(data){
+						dataobj=JSON.parse(data);
+						if(dataobj.status==1){
+							window.location.href="/moment/user/index.action";
+						}else{
+							alert(dataobj.msg);
+						}
+					},
+					error:function(responseTxt,statusTxt,XMLHttpRequest){
+						alert("登录失败");
+					}
+			};
+			//使用表单控件，进行异步更新数据
+			$('.login_form').ajaxSubmit(options);
+			//防止页面进行刷新
+			return false;
+		
+		} else {
+			alert("请完善提交信息");
+		}
+	});
+</script>
 </html>
