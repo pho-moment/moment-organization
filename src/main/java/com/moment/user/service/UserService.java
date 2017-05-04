@@ -25,5 +25,4 @@ public interface UserService {
 	 * @return
 	 */
 	public DataTablesResponse<UserVO> list(DataTablesRequest request) throws Throwable;
-	
 }

@@ -18,4 +18,8 @@ public interface PicService {
 	public int updatePicVO(PicVO pic) throws Throwable;
 	public DataTablesResponse<PicVO> list(DataTablesRequest request) throws Throwable;
 	public  Response doUpload(byte[] b,PicVO pic) throws Throwable ;
+
+	public int getPicnumByDate(Integer id) throws Throwable;
+
+	
 }

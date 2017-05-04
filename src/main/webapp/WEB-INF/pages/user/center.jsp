@@ -5,34 +5,34 @@
 <head>
     <meta charset="UTF-8">
     <title>个人中心</title>
-    <link rel="stylesheet" href="${path}/resources/css/bootstrap.min.css" />
-    <link href="${path}/resources/css/cropper.min.css" rel="stylesheet">
-    <link href="${path}/resources/css/main.css" rel="stylesheet">
-    <link rel="shortcut icon"  href="${path}/resources/img/icon.jpg">
-    <link rel="stylesheet" href="${path}/resources/css/center.css" />
+    <link rel="stylesheet" href="${path}/resources/user/css/bootstrap.min.css" />
+    <link href="${path}/resources/user/css/cropper.min.css" rel="stylesheet">
+    <link href="${path}/resources/user/css/main.css" rel="stylesheet">
+    <link rel="shortcut icon"  href="${path}/resources/user/img/icon.jpg">
+    <link rel="stylesheet" href="${path}/resources/user/css/center.css" />
     <style type="text/css">
     	.exit{
-            background: url(${path}/resources/fonts/tuichu.svg) no-repeat 4px 5px;
+            background: url(${path}/resources/user/fonts/tuichu.svg) no-repeat 4px 5px;
             background-size: 19px 24px;
             width: 35px;
         }
         .inform{
-            background: url(${path}/resources/fonts/inform.svg) no-repeat 4px 5px;
+            background: url(${path}/resources/user/fonts/inform.svg) no-repeat 4px 5px;
             background-size: 19px 24px;
             width: 35px;
         }
         .user{
-            background: url(${path}/resources/fonts/user.svg) no-repeat 4px 5px;
+            background: url(${path}/resources/user/fonts/user.svg) no-repeat 4px 5px;
             background-size: 19px 24px;
             width: 35px;
         }
         .setting1{
-            background: url(${path}/resources/fonts/setting1.svg) no-repeat 4px 5px;
+            background: url(${path}/resources/user/fonts/setting1.svg) no-repeat 4px 5px;
             background-size: 19px 24px;
             width: 35px;
         }
          .like{
-            background: url(${path}/resources/fonts/xihuan.svg) no-repeat 1px 3px;
+            background: url(${path}/resources/user/fonts/xihuan.svg) no-repeat 1px 3px;
             background-size:  16px 16px;
             width: 35px;
             display: inline-block;
@@ -42,7 +42,7 @@
             cursor: pointer;
         }
         .collect{
-           background: url(${path}/resources/fonts/shoucang.svg) no-repeat 0px -1px;
+           background: url(${path}/resources/user/fonts/shoucang.svg) no-repeat 0px -1px;
             background-size: 18px 26px;
             width: 35px;
             display: inline-block;
@@ -52,7 +52,7 @@
             cursor: pointer;
         }
         .comment{
-            background: url(${path}/resources/fonts/pinglun.svg) no-repeat -1px 1px;
+            background: url(${path}/resources/user/fonts/pinglun.svg) no-repeat -1px 1px;
             background-size: 19px 24px;
             width: 35px;
             display: inline-block;
@@ -69,7 +69,7 @@
         <div>
              <ul>
             <li>
-                <a href="${path}/user/index.action"><img src="${path}/resources/img/logo.png" class="logo"></a>
+                <a href="${path}/user/index.action"><img src="${path}/resources/user/img/logo.png" class="logo"></a>
             </li>
             <li>
                 <a href="${path}/user/index.action">首页</a>
@@ -84,7 +84,7 @@
                 <a href="">干货</a>
             </li>
             <li class="userCenter">
-                <img src="${path}/resources/img/user.jpg" class="userImg userImgCenter">
+                <img src="${path}/resources/user/img/user.jpg" class="userImg userImgCenter">
                     <ul class="centerList hidden">
                         <li>
                             <a href="${path}/user/center.action" class="user">个人中心</a>
@@ -108,7 +108,7 @@
 <div class="container">
 	<div class="detail_block">
 		<div>
-			<img src="${path}/resources/img/user.jpg">
+			<img src="${path}/resources/user/img/user.jpg">
 			<div>
 				<div>
 					<ul class="imgBelow">
@@ -205,7 +205,7 @@
                     </div>
 	 		</li>
 	 		<li>
-                <img src="${path}/resources/img/test.jpg">
+                <img src="${path}/resources/user/img/test.jpg">
                 <div class="pic_detail">
                     <h4 class="picname">图片名称孩图片名称孩</h4>
                     <p class="picdesc">图片描述图片描述</p>
@@ -220,7 +220,7 @@
                 </div>
             </li>
             <li>
-                <img src="${path}/resources/img/test.jpg">
+                <img src="${path}/resources/user/img/test.jpg">
                 <div class="pic_detail">
                     <h4 class="picname">图片名称孩图片名称孩</h4>
                     <p class="picdesc">图片描述图片描述</p>
@@ -235,7 +235,7 @@
                 </div>
             </li>
              <li>
-                <img src="${path}/resources/img/test.jpg">
+                <img src="${path}/resources/user/img/test.jpg">
                 <div class="pic_detail">
                     <h4 class="picname">图片名称孩图片名称孩</h4>
                     <p class="picdesc">图片描述图片描述</p>
@@ -254,13 +254,13 @@
 	<div class="like_waterfall hidden">
 		<ul>
 			<li>
-				<img src="${path}/resources/img/test.jpg">
+				<img src="${path}/resources/user/img/test.jpg">
                 <div class="pic_detail">
                     <h4 class="picname">图片名称孩图片名称孩</h4>
                     <p class="picdesc">图片描述图片描述</p>
                 </div>
                  <div class="owner_detail">
-                        <img src="${path}/resources/img/user.jpg" class="ownerImg">
+                        <img src="${path}/resources/user/img/user.jpg" class="ownerImg">
                         <div>
                             <span class="ownername">XXX</span>
                             <span class="ownergrade">LV0</span>
@@ -320,14 +320,14 @@
 	 			<p><span class="coll_num">23</span>张</p>
 	 			<div class="coll_box">
 	 				<div class="img_top">
-	 					<img src="${path}/resources/img/test3.jpg" >
+	 					<img src="${path}/resources/user/img/test3.jpg" >
 	 				</div>
 	 				<div class="img_bottom">
 	 					<div>
-	 						<img src="${path}/resources/img/calendar.jpg">
+	 						<img src="${path}/resources/user/img/calendar.jpg">
 	 					</div>
 	 					<div>
-	 						<img src="${path}/resources/img/test.jpg">	 						
+	 						<img src="${path}/resources/user/img/test.jpg">	 						
 	 					</div>
 	 				</div>
 	 			</div>
@@ -339,11 +339,11 @@
 </div>
 <footer>
 </footer>
-<script src="${path}/resources/js/jquery-2.2.3.min.js"></script>
-<script src="${path}/resources/js/bootstrap.min.js"></script>
-<script src="${path}/resources/js/jquery.form.js"></script>
-<script src="${path}/resources/js/center.js"></script>
-<script src="${path}/resources/js/cropper.min.js"></script>
-<script src="${path}/resources/js/main.js"></script>
+<script src="${path}/resources/user/js/jquery-2.2.3.min.js"></script>
+<script src="${path}/resources/user/js/bootstrap.min.js"></script>
+<script src="${path}/resources/user/js/jquery.form.js"></script>
+<script src="${path}/resources/user/js/center.js"></script>
+<script src="${path}/resources/user/js/cropper.min.js"></script>
+<script src="${path}/resources/user/js/main.js"></script>
 </body>
 </html>

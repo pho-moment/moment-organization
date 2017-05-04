@@ -227,6 +227,7 @@
 
     ajaxUpload: function () {
       var url = this.$avatarForm.attr('action'),
+      //这里的data是最后上传到服务器的数据，你看看这里有没有图片数据信息，要到前端页面看一下
           data = new FormData(this.$avatarForm[0]),
           _this = this;
 

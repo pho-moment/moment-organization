@@ -9,14 +9,14 @@
     <!-- 控制移动端浏览器视口的大小和缩放 -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
-    <link href="${path}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${path}/resources/user/css/bootstrap.min.css" rel="stylesheet">
     <!--  jQuery文件务必在bootstrap.min.js 之前引入  -->
-    <script src="${path}/resources/js/jquery-2.2.3.min.js"></script>
+    <script src="${path}/resources/user/js/jquery-2.2.3.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="${path}/resources/js/bootstrap.min.js"></script>
+    <script src="${path}/resources/user/js/bootstrap.min.js"></script>
     <!-- 引入login.css -->
-    <link href="${path}/resources/css/login.css" rel="stylesheet">
-    <script src="${path}/resources/js/login.js" type="text/javascript" charset="utf-8"></script>
+    <link href="${path}/resources/user/css/login.css" rel="stylesheet">
+    <script src="${path}/resources/user/js/login.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	
@@ -26,7 +26,7 @@
 	<!-- 清除设置透明度的继承影响 -->
 	<div class="emptybox"></div>
 	<div class="loginbox">
-		<img src="${path}/resources/img/logo.png" class="logo" />
+		<img src="${path}/resources/user/img/logo.png" class="logo" />
 
 		<!--登录表单-->
 		<form action="${path}/user/dologin.action" class="form-horizontal login_form" method="post" role="form">
@@ -75,7 +75,7 @@
 				<p class="font_wei col-sm-9">账户注册</p>
 			</div>
 			<div class="col-sm-offset-2 col-sm-10">
-				<img src="${path}/resources/img/blacklogo.png" alt="logo" />
+				<img src="${path}/resources/user/img/blacklogo.png" alt="logo" />
 			</div>
 			<div class="clear"></div>
 			<!--注册表单-->

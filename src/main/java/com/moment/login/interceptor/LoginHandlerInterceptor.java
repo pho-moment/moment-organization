@@ -31,7 +31,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor{
 		// TODO Auto-generated method stub
 		
 	}
-
+	//这里涉及到两个登陆角色，管理员和用户，因此这里的拦截器也要相应去识别管理员和用户的登陆
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
@@ -39,7 +39,10 @@ public class LoginHandlerInterceptor implements HandlerInterceptor{
 		HttpServletRequest httpReq=(HttpServletRequest)request;
 		HttpServletResponse httpRes=(HttpServletResponse)response;
 		if(httpReq.getSession().getAttribute("user")!=null){//已经登录
-			logger.debug("已经登录");
+			logger.debug("用户已经登录");
+			return true;
+		}else if(httpReq.getSession().getAttribute("admin")!=null){
+			logger.debug("管理员已经登录");
 			return true;
 		}else{//没有登录
 			String uri=httpReq.getRequestURI();
@@ -52,6 +55,8 @@ public class LoginHandlerInterceptor implements HandlerInterceptor{
 			}
 			
 		}
+		
+		
 	}
 	/**
 	 * 判断是否不需要拦截的URI

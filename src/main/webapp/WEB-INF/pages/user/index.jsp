@@ -6,18 +6,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Moment首页</title>
-    <link rel="stylesheet" href="${path}/resources/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="${path}/resources/css/index.css" />
-    <link href="${path}/resources/css/cropper.min.css" rel="stylesheet">
-    <link href="${path}/resources/css/main.css" rel="stylesheet">
-    <link rel="shortcut icon"  href="img/icon.jpg">
+    <link rel="stylesheet" href="${path}/resources/user/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="${path}/resources/user/css/index.css" />
+    <link href="${path}/resources/user/css/cropper.min.css" rel="stylesheet">
+    <link href="${path}/resources/user/css/main.css" rel="stylesheet">
+    <link rel="shortcut icon"  href="${path}/resources/user/img/icon.jpg">
     <style type="text/css">
         .search {
-           background: url(${path}/resources/fonts/search.svg) no-repeat 7px 6px;
+           background: url(${path}/resources/user/fonts/search.svg) no-repeat 7px 6px;
             background-size: 25px 23px;
         }
         .setting {
-            background: url(${path}/resources/fonts/shezhi.svg) no-repeat 2px 13px;
+            background: url(${path}/resources/userfonts/shezhi.svg) no-repeat 2px 13px;
             background-size: 29px 28px;
             width: 35px;
             height: 55px;
@@ -28,7 +28,7 @@
             cursor: pointer;
         }
         .like{
-            background: url(${path}/resources/fonts/xihuan.svg) no-repeat 1px 3px;
+            background: url(${path}/resources/user/fonts/xihuan.svg) no-repeat 1px 3px;
             background-size:  16px 16px;
             width: 35px;
             display: inline-block;
@@ -38,7 +38,7 @@
             cursor: pointer;
         }
         .like1{
-            background: url(${path}/resources/fonts/like1.svg) no-repeat 1px 3px;
+            background: url(${path}/resources/user/fonts/like1.svg) no-repeat 1px 3px;
             background-size:  16px 16px;
             width: 35px;
             display: inline-block;
@@ -48,7 +48,7 @@
             cursor: pointer;
         }
         .collect{
-           background: url(${path}/resources/fonts/shoucang.svg) no-repeat 0px -1px;
+           background: url(${path}/resources/user/fonts/shoucang.svg) no-repeat 0px -1px;
             background-size: 18px 26px;
             width: 35px;
             display: inline-block;
@@ -58,7 +58,7 @@
             cursor: pointer;
         }
         .comment{
-            background: url(${path}/resources/fonts/pinglun.svg) no-repeat -1px 1px;
+            background: url(${path}/resources/user/fonts/pinglun.svg) no-repeat -1px 1px;
             background-size: 19px 24px;
             width: 35px;
             display: inline-block;
@@ -68,22 +68,22 @@
             cursor: pointer;
         }
         .exit{
-            background: url(${path}/resources/fonts/tuichu.svg) no-repeat 4px 5px;
+            background: url(${path}/resources/user/fonts/tuichu.svg) no-repeat 4px 5px;
             background-size: 19px 24px;
             width: 35px;
         }
         .inform{
-            background: url(${path}/resources/fonts/inform.svg) no-repeat 4px 5px;
+            background: url(${path}/resources/user/fonts/inform.svg) no-repeat 4px 5px;
             background-size: 19px 24px;
             width: 35px;
         }
         .user{
-            background: url(${path}/resources/fonts/user.svg) no-repeat 4px 5px;
+            background: url(${path}/resources/user/fonts/user.svg) no-repeat 4px 5px;
             background-size: 19px 24px;
             width: 35px;
         }
         .setting1{
-            background: url(${path}/resources/fonts/setting1.svg) no-repeat 4px 5px;
+            background: url(${path}/resources/user/fonts/setting1.svg) no-repeat 4px 5px;
             background-size: 19px 24px;
             width: 35px;
         }
@@ -95,7 +95,7 @@
         <div>
              <ul>
             <li>
-                <a href="${path}/user/index.action"><img src="${path}/resources/img/logo.png" class="logo"></a>
+                <a href="${path}/user/index.action"><img src="${path}/resources/user/img/logo.png" class="logo"></a>
             </li>
             <li>
                 <a href="${path}/user/index.action">首页</a>
@@ -110,7 +110,7 @@
                 <a href="">干货</a>
             </li>
             <li class="userCenter">
-                <img src="${path}/resources/img/user.jpg" class="userImg userImgCenter">
+                <img src="${path}/resources/user/img/user.jpg" class="userImg userImgCenter">
                     <ul class="centerList hidden">
                         <li>
                             <a href="${path}/user/center.action" class="user">个人中心</a>
@@ -152,7 +152,7 @@
         <ul>
             <li class="user_card">
                 <div class="picCalendar">
-                   <img src="${path}/resources/img/calendar.jpg">
+                   <img src="${path}/resources/user/img/calendar.jpg">
                    <div class="calendar">
                         <p class="calendar_description">只能七个字以内</p>
                         <p class="cla_today">
@@ -168,7 +168,7 @@
                 </div>
                 <div>
                     <div class="userSetting">
-                        <a href=""><img src="${path}/resources/img/user.jpg" class="userImg"></a>
+                        <a href=""><img src="${path}/resources/user/img/user.jpg" class="userImg"></a>
                         <span class="username">不醉不会</span>
                         <a href="${path}/user/setting.action"><button class="setting"> </button></a>
                     </div>
@@ -195,7 +195,7 @@
                         <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
                             <div class="modal-dialog modal-lg">
         <div class="modal-content">
-          <form class="avatar-form" action="crop.php" enctype="multipart/form-data" method="post">
+          <form class="avatar-form" action="${path }/pic/doupload.action" enctype="multipart/form-data" method="post">
             <div class="modal-header">
               <button class="close" data-dismiss="modal" type="button">&times;</button>
               <h4 class="modal-title" id="avatar-modal-label">上传照片</h4>
@@ -254,7 +254,7 @@
                 </div>
             </li>
             <li>
-                <img src="${path}/resources/img/test.jpg">
+                <img src="${path}/resources/user/img/test.jpg">
                 <div class="pic_detail">
                     <h4 class="picname">图片名称孩图片名称孩</h4>
                     <p class="picdesc">图片描述图片描述</p>
@@ -262,11 +262,11 @@
                         <li class="like "><span class="piclike">12</span></li>
                         <li class="collect"><span class="piccollect">12</span></li>
                         <li class="comment"> <span class="piccollect">12</span></li>
-                        <li class="report"><a href="">举报</a></li>
+                        <li class="report"  data-toggle="modal" data-target="#reportModal" data-toggle="modal" data-target="#reportModal">举报</li>
                     </ul>
                 </div>
                 <div class="owner_detail">
-                        <img src="${path}/resources/img/user.jpg" class="ownerImg">
+                        <img src="${path}/resources/user/img/user.jpg" class="ownerImg">
                         <div>
                             <span class="ownername">XXX</span>
                             <span class="ownergrade">LV0</span>
@@ -276,7 +276,7 @@
                 </div>
             </li>
             <li>
-                <img src="${path}/resources/img/test2.jpg">
+                <img src="${path}/resources/user/img/test2.jpg">
                 <div class="pic_detail">
                     <h4 class="picname">图片名称孩图片名称孩</h4>
                     <p class="picdesc">图片描述图片描述</p>
@@ -284,11 +284,12 @@
                         <li class="like "><span class="piclike">12</span></li>
                         <li class="collect"><span class="piccollect">12</span></li>
                         <li class="comment"> <span class="piccollect">12</span></li>
-                        <li class="report"><a href="">举报</a></li>
+                        <li class="report" data-toggle="modal" data-target="#reportModal" data-toggle="modal" data-target="#reportModal">举报</li>
                     </ul>
+                    
                 </div>
                 <div class="owner_detail">
-                        <img src="${path}/resources/img/user.jpg" class="ownerImg">
+                        <img src="${path}/resources/user/img/user.jpg" class="ownerImg">
                         <div>
                             <span class="ownername">XXX</span>
                             <span class="ownergrade">LV0</span>
@@ -311,15 +312,41 @@
             </li>
         </ul>       
     </div>
+    <!-- 举报按钮触发模态框 -->
+						<!-- 模态框（Modal） -->
+						<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						        <div class="modal-content">
+						            <form role="form" method="post" id="report_form">
+									 <div class="form-group">
+						            <div class="modal-header">
+						                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						                <h4 class="modal-title" id="myModalLabel">举报该图片</h4>
+						            </div>
+						            <div class="modal-body">
+											<input type="hidden" name="picid" value="3" id="pic_id">
+										    <textarea class="form-control" rows="3" placeholder="请输入举报的原因" id="desct_input" name="description" value="${reportVO.description}"></textarea>
+										  </div>
+						            </div>
+						            
+						            <div class="modal-footer">
+						                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						                <button  class="btn btn-primary " id="report_submit_btn">提交</button>
+						            </div>
+									</form>
+						        </div><!-- /.modal-content -->
+						    </div><!-- /.modal-dialog -->
+						</div>
+						<!-- /.modal -->
 </div>
 <footer>
 
 </footer>
-<script src="${path}/resources/js/jquery-2.2.3.min.js"></script>
-<script src="${path}/resources/js/bootstrap.min.js"></script>
-<script src="${path}/resources/js/jquery.form.js"></script>
-<script src="${path}/resources/js/index.js"></script>
-<script src="${path}/resources/js/cropper.min.js"></script>
-<script src="${path}/resources/js/main.js"></script>
+<script src="${path}/resources/user/js/jquery-2.2.3.min.js"></script>
+<script src="${path}/resources/user/js/bootstrap.min.js"></script>
+<script src="${path}/resources/user/js/jquery.form.js"></script>
+<script src="${path}/resources/user/js/index.js"></script>
+<script src="${path}/resources/user/js/cropper.min.js"></script>
+<script src="${path}/resources/user/js/main.js"></script>
 </body>
 </html>

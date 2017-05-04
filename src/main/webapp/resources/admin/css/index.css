@@ -404,7 +404,16 @@ footer{
     padding-top: 20px;
 }
 
-
+/*举报框*/
+li.report {
+    width: 62px!important;
+    padding-left: 33px;
+    cursor: pointer;
+    /* display: inline-block; */
+}
+li.report:hover{
+	color: #ecbe79;
+}
 /*CSS3动画*/
 header ul>li a:hover{
 	color:#ecbe79;
