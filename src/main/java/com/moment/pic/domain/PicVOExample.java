@@ -656,63 +656,63 @@ public class PicVOExample implements Serializable {
             return (Criteria) this;
         }
 
-        public Criteria andLikeIsNull() {
-            addCriterion("like is null");
+        public Criteria andPiclikeIsNull() {
+            addCriterion("piclike is null");
             return (Criteria) this;
         }
 
-        public Criteria andLikeIsNotNull() {
-            addCriterion("like is not null");
+        public Criteria andPiclikeIsNotNull() {
+            addCriterion("piclike is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLikeEqualTo(Integer value) {
-            addCriterion("like =", value, "like");
+        public Criteria andPiclikeEqualTo(Integer value) {
+            addCriterion("piclike =", value, "piclike");
             return (Criteria) this;
         }
 
-        public Criteria andLikeNotEqualTo(Integer value) {
-            addCriterion("like <>", value, "like");
+        public Criteria andPiclikeNotEqualTo(Integer value) {
+            addCriterion("piclike <>", value, "piclike");
             return (Criteria) this;
         }
 
-        public Criteria andLikeGreaterThan(Integer value) {
-            addCriterion("like >", value, "like");
+        public Criteria andPiclikeGreaterThan(Integer value) {
+            addCriterion("piclike >", value, "piclike");
             return (Criteria) this;
         }
 
-        public Criteria andLikeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("like >=", value, "like");
+        public Criteria andPiclikeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("piclike >=", value, "piclike");
             return (Criteria) this;
         }
 
-        public Criteria andLikeLessThan(Integer value) {
-            addCriterion("like <", value, "like");
+        public Criteria andPiclikeLessThan(Integer value) {
+            addCriterion("piclike <", value, "piclike");
             return (Criteria) this;
         }
 
-        public Criteria andLikeLessThanOrEqualTo(Integer value) {
-            addCriterion("like <=", value, "like");
+        public Criteria andPiclikeLessThanOrEqualTo(Integer value) {
+            addCriterion("piclike <=", value, "piclike");
             return (Criteria) this;
         }
 
-        public Criteria andLikeIn(List<Integer> values) {
-            addCriterion("like in", values, "like");
+        public Criteria andPiclikeIn(List<Integer> values) {
+            addCriterion("piclike in", values, "piclike");
             return (Criteria) this;
         }
 
-        public Criteria andLikeNotIn(List<Integer> values) {
-            addCriterion("like not in", values, "like");
+        public Criteria andPiclikeNotIn(List<Integer> values) {
+            addCriterion("piclike not in", values, "piclike");
             return (Criteria) this;
         }
 
-        public Criteria andLikeBetween(Integer value1, Integer value2) {
-            addCriterion("like between", value1, value2, "like");
+        public Criteria andPiclikeBetween(Integer value1, Integer value2) {
+            addCriterion("piclike between", value1, value2, "piclike");
             return (Criteria) this;
         }
 
-        public Criteria andLikeNotBetween(Integer value1, Integer value2) {
-            addCriterion("like not between", value1, value2, "like");
+        public Criteria andPiclikeNotBetween(Integer value1, Integer value2) {
+            addCriterion("piclike not between", value1, value2, "piclike");
             return (Criteria) this;
         }
 

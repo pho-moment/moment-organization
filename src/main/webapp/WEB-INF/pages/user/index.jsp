@@ -220,7 +220,7 @@
                   <input class="avatar-src" name="avatar_src" type="hidden">
                   <input class="avatar-data" name="avatar_data" type="hidden">
                   <label for="avatarInput">选择照片上传</label>
-                  <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
+                  <input class="avatar-input" id="avatarInput" name="file" type="file">
                 </div>
 
                 <!-- 图片的剪裁预览窗口 -->
@@ -237,12 +237,12 @@
                 <hr>
                 <div class="form-group">
                     <label for="picNameInput">图片名称</label>
-                    <input class="avatar-input" id="picNameInput" name="name" type="text" placeholder="给你的作品取个名字吧(七个字以内)">
+                    <input class="avatar-input" value="${pic.name }" id="picNameInput" name="name" type="text" placeholder="给你的作品取个名字吧(七个字以内)">
                 </div>
                 <hr>
                 <div class="form-group">
-                    <label for="picDescriptionInput">图片故是</label>
-                    <textarea class="avatar-input" id="picDescriptionInput" name="desct" type="text" placeholder="因故而是，向大家说说照片背后的故事吧" rows="3" cols="20"></textarea>
+                    <label for="picDescriptionInput">图片故事</label>
+                    <textarea class="avatar-input" value="${pic.description }"  id="picDescriptionInput" name="description" type="text" placeholder="因故而是，向大家说说照片背后的故事吧" rows="3" cols="20"></textarea>
                 </div>
                 <hr>
                 </div>

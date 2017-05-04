@@ -20,7 +20,7 @@ public class PicVO implements Serializable {
 
     private String type;
 
-    private Integer like;
+    private Integer piclike;
 
     private Integer collect;
 
@@ -92,12 +92,12 @@ public class PicVO implements Serializable {
         this.type = type == null ? null : type.trim();
     }
 
-    public Integer getLike() {
-        return like;
+    public Integer getPiclike() {
+        return piclike;
     }
 
-    public void setLike(Integer like) {
-        this.like = like;
+    public void setPiclike(Integer piclike) {
+        this.piclike = piclike;
     }
 
     public Integer getCollect() {
@@ -130,7 +130,7 @@ public class PicVO implements Serializable {
         sb.append(", time=").append(time);
         sb.append(", userid=").append(userid);
         sb.append(", type=").append(type);
-        sb.append(", like=").append(like);
+        sb.append(", piclike=").append(piclike);
         sb.append(", collect=").append(collect);
         sb.append(", comment=").append(comment);
         sb.append(", serialVersionUID=").append(serialVersionUID);
@@ -158,7 +158,7 @@ public class PicVO implements Serializable {
             && (this.getTime() == null ? other.getTime() == null : this.getTime().equals(other.getTime()))
             && (this.getUserid() == null ? other.getUserid() == null : this.getUserid().equals(other.getUserid()))
             && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
-            && (this.getLike() == null ? other.getLike() == null : this.getLike().equals(other.getLike()))
+            && (this.getPiclike() == null ? other.getPiclike() == null : this.getPiclike().equals(other.getPiclike()))
             && (this.getCollect() == null ? other.getCollect() == null : this.getCollect().equals(other.getCollect()))
             && (this.getComment() == null ? other.getComment() == null : this.getComment().equals(other.getComment()));
     }
@@ -175,7 +175,7 @@ public class PicVO implements Serializable {
         result = prime * result + ((getTime() == null) ? 0 : getTime().hashCode());
         result = prime * result + ((getUserid() == null) ? 0 : getUserid().hashCode());
         result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
-        result = prime * result + ((getLike() == null) ? 0 : getLike().hashCode());
+        result = prime * result + ((getPiclike() == null) ? 0 : getPiclike().hashCode());
         result = prime * result + ((getCollect() == null) ? 0 : getCollect().hashCode());
         result = prime * result + ((getComment() == null) ? 0 : getComment().hashCode());
         return result;

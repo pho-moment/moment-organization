@@ -10,7 +10,7 @@
     <result column="time" property="time" jdbcType="TIMESTAMP" />
     <result column="userid" property="userid" jdbcType="INTEGER" />
     <result column="type" property="type" jdbcType="VARCHAR" />
-    <result column="like" property="like" jdbcType="INTEGER" />
+    <result column="piclike" property="piclike" jdbcType="INTEGER" />
     <result column="collect" property="collect" jdbcType="INTEGER" />
     <result column="comment" property="comment" jdbcType="INTEGER" />
   </resultMap>
@@ -73,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, description, ispublic, picpath, time, userid, type, like, collect, comment
+    id, name, description, ispublic, picpath, time, userid, type, piclike, collect, comment
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.moment.pic.domain.PicVOExample" >
     select
@@ -116,11 +116,11 @@
   <insert id="insert" parameterType="com.moment.pic.domain.PicVO" useGeneratedKeys="true" keyProperty="id" >
     insert into pic (id, name, description, 
       ispublic, picpath, time, 
-      userid, type, like, 
+      userid, type, piclike, 
       collect, comment)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{ispublic,jdbcType=VARCHAR}, #{picpath,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
-      #{userid,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{like,jdbcType=INTEGER}, 
+      #{userid,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{piclike,jdbcType=INTEGER}, 
       #{collect,jdbcType=INTEGER}, #{comment,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.moment.pic.domain.PicVO" useGeneratedKeys="true" keyProperty="id" >
@@ -150,8 +150,8 @@
       <if test="type != null" >
         type,
       </if>
-      <if test="like != null" >
-        like,
+      <if test="piclike != null" >
+        piclike,
       </if>
       <if test="collect != null" >
         collect,
@@ -185,8 +185,8 @@
       <if test="type != null" >
         #{type,jdbcType=VARCHAR},
       </if>
-      <if test="like != null" >
-        #{like,jdbcType=INTEGER},
+      <if test="piclike != null" >
+        #{piclike,jdbcType=INTEGER},
       </if>
       <if test="collect != null" >
         #{collect,jdbcType=INTEGER},
@@ -229,8 +229,8 @@
       <if test="record.type != null" >
         type = #{record.type,jdbcType=VARCHAR},
       </if>
-      <if test="record.like != null" >
-        like = #{record.like,jdbcType=INTEGER},
+      <if test="record.piclike != null" >
+        piclike = #{record.piclike,jdbcType=INTEGER},
       </if>
       <if test="record.collect != null" >
         collect = #{record.collect,jdbcType=INTEGER},
@@ -253,7 +253,7 @@
       time = #{record.time,jdbcType=TIMESTAMP},
       userid = #{record.userid,jdbcType=INTEGER},
       type = #{record.type,jdbcType=VARCHAR},
-      like = #{record.like,jdbcType=INTEGER},
+      piclike = #{record.piclike,jdbcType=INTEGER},
       collect = #{record.collect,jdbcType=INTEGER},
       comment = #{record.comment,jdbcType=INTEGER}
     <if test="_parameter != null" >
@@ -284,8 +284,8 @@
       <if test="type != null" >
         type = #{type,jdbcType=VARCHAR},
       </if>
-      <if test="like != null" >
-        like = #{like,jdbcType=INTEGER},
+      <if test="piclike != null" >
+        piclike = #{piclike,jdbcType=INTEGER},
       </if>
       <if test="collect != null" >
         collect = #{collect,jdbcType=INTEGER},
@@ -305,7 +305,7 @@
       time = #{time,jdbcType=TIMESTAMP},
       userid = #{userid,jdbcType=INTEGER},
       type = #{type,jdbcType=VARCHAR},
-      like = #{like,jdbcType=INTEGER},
+      piclike = #{piclike,jdbcType=INTEGER},
       collect = #{collect,jdbcType=INTEGER},
       comment = #{comment,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
