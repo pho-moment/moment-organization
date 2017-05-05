@@ -1,7 +1,9 @@
 package com.moment.pic.service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -138,4 +140,33 @@ public class PicServiceImpl implements PicService {
 		}			
 	}
 
+	@Override
+	public List<PicVO> getPicList(String type) throws Throwable {
+		PicVOExample example = new PicVOExample() ;
+		example.createCriteria().andTypeLike("%"+type+"%") ;
+		example.setOrderByClause("time desc");
+		return mapper.selectByExample(example);
+	}
+	
+
+	@Override
+	public List<PicVO> getUserPicList(Integer id) throws Throwable {
+		PicVOExample example = new PicVOExample() ;
+		example.createCriteria().andUseridEqualTo(id) ;
+		example.setOrderByClause("time desc");
+		return mapper.selectByExample(example);
+		
+	}
+	public static void main(String[] args) throws Throwable {
+		SpringUtil.init("application.xml");
+		PicServiceImpl service = SpringUtil.getBean(PicServiceImpl.class) ;
+		String type = "" ;
+		List<PicVO> list = service.getPicList(type);
+		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
+			PicVO picVO = (PicVO) iterator.next();
+			System.out.println(picVO.toString());
+		}
+	}
+
+	
 }

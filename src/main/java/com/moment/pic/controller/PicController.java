@@ -1,5 +1,9 @@
 package com.moment.pic.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +36,7 @@ public class PicController {
 
 	@Transactional
 	@RequestMapping("/doupload")
-	public @ResponseBody JsonResult doUpload(MultipartFile file, PicVO pic) throws Throwable {
+	public @ResponseBody JsonResult doUpload(MultipartFile file, PicVO pic,HttpSession session) throws Throwable {
 		CurrentUser cuser = CurrentUser.getInstance();
 		service.updateUserGrade(cuser.getCurrentUser());
 		GradeVO grade = cuser.getGrade();
@@ -50,6 +54,12 @@ public class PicController {
 			user.setPicnum(user.getPicnum() + 1);
 			// 用户数据表中的上传图片数量改变
 			userservice.updateUser(user);
+			
+			/*List<PicVO> picList = (List<PicVO>) session.getAttribute("picList") ;
+			picList.add(0, pic);
+			
+			List<PicVO> cuserList = (List<PicVO>) session.getAttribute("cuserList") ;
+			cuserList.add(0,pic);*/
 			return result;
 
 		} else {

@@ -2,6 +2,7 @@ package com.moment.pic.service;
 
 
 import java.io.File;
+import java.util.List;
 
 import com.moment.datatables.domain.DataTablesRequest;
 import com.moment.datatables.domain.DataTablesResponse;
@@ -22,4 +23,6 @@ public interface PicService {
 	public int deletePicFromQiniu(Integer id) throws Throwable;
 	public int getPicnumByDate(Integer id) throws Throwable ;
 	public void updateUserGrade(UserVO user) throws Throwable ;
+	public List<PicVO> getPicList(String style) throws Throwable ;
+	public List<PicVO> getUserPicList(Integer id) throws Throwable ;
 }

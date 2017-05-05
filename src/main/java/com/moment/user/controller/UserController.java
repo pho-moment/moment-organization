@@ -1,6 +1,8 @@
 package com.moment.user.controller;
 
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.moment.common.domain.CurrentUser;
 import com.moment.common.domain.JsonResult;
 import com.moment.common.util.RegexValidateUtil;
 import com.moment.grade.domain.GradeVO;
 import com.moment.grade.service.GradeService;
+import com.moment.pic.domain.PicVO;
+import com.moment.pic.service.PicService;
 import com.moment.user.domain.UserVO;
 import com.moment.user.service.UserService;
 
@@ -27,6 +32,8 @@ public class UserController {
 	private UserService service;
 	@Autowired
 	private GradeService gservice;
+	@Autowired
+	private PicService pservice ;
 		
 	
 	@RequestMapping("/doregister")
@@ -145,7 +152,18 @@ public class UserController {
 		}
 	}
 	@RequestMapping("/index")
-	public String index(){
+	public String index(HttpSession session,String type){
+		List<PicVO> picList = null ;
+		if(type==null){
+			type = "" ;
+		}
+		System.out.println(type);
+		try {
+			picList = pservice.getPicList(type) ;
+			session.setAttribute("picList", picList);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
 		return "user/index";
 	}
 	@RequestMapping("/setting")
@@ -153,7 +171,16 @@ public class UserController {
 		return "user/setting";
 	}
 	@RequestMapping("/center")
-	public String center(){
+	public String center(HttpSession session){
+		CurrentUser cuser = CurrentUser.getInstance() ;
+		int cuid = cuser.getUserId() ;
+		List<PicVO> list = null ;
+		try {
+			list = pservice.getUserPicList(cuid) ;
+			session.setAttribute("cuserList", list);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
 		return "user/center";
 	}
 	@RequestMapping("/collect")

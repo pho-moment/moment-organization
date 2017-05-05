@@ -10,6 +10,13 @@
 <form action="doupload.action" method="post" enctype="multipart/form-data">
 	<input type="file" name="file"/>
 	<input type="text" name="description" value="${pic.description }">
+	 <select>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
 	<input type="submit" value="提交"/>
 </form>
 </body>

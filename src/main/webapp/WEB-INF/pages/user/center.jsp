@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,7 +150,7 @@
                         <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form class="avatar-form" action="crop.php" enctype="multipart/form-data" method="post">
+                                    <form class="avatar-form" action="${path }/pic/doupload.action" enctype="multipart/form-data" method="post">
                                         <div class="modal-header">
                                             <button class="close" data-dismiss="modal" type="button">&times;</button>
                                             <h4 class="modal-title" id="avatar-modal-label">上传照片</h4>
@@ -162,7 +163,7 @@
                   									<input class="avatar-src" name="avatar_src" type="hidden">
                   									<input class="avatar-data" name="avatar_data" type="hidden">
                   									<label for="avatarInput">选择照片上传</label>
-                  									<input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
+                  									<input class="avatar-input" id="avatarInput" name="file" type="file">
                                                 </div>
                                                 <!-- 图片的剪裁预览窗口 -->
                                                 <div class="row">
@@ -204,6 +205,7 @@
 
                     </div>
 	 		</li>
+	 		
 	 		<li>
                 <img src="${path}/resources/user/img/test.jpg">
                 <div class="pic_detail">
@@ -219,21 +221,31 @@
                     <p class="time">2017-04-30</p>
                 </div>
             </li>
+                  <c:forEach items="${cuserList }" var="pic">
             <li>
-                <img src="${path}/resources/user/img/test.jpg">
+                <img src="${pic.picpath }">
                 <div class="pic_detail">
-                    <h4 class="picname">图片名称孩图片名称孩</h4>
-                    <p class="picdesc">图片描述图片描述</p>
+                    <h4 class="picname"><c:out value="${pic.name }"></c:out></h4>
+                    <p class="picdesc"><c:out value="${pic.description}"></c:out></p>
                     <ul>
-                        <li class="like "><span class="piclike">12</span></li>
-                        <li class="collect"><span class="piccollect">12</span></li>
-                        <li class="comment"> <span class="piccollect">12</span></li>
+                        <li class="like "><span class="piclike"><c:out value="${pic.piclike }"></c:out></span></li>
+                        <li class="collect"><span class="piccollect"><c:out value="${pic.collect }"></c:out></span></li>
+                        <li class="comment"> <span class="piccollect"><c:out value="${pic.comment }"></c:out></span></li>
+                        <li class="report" data-toggle="modal" data-target="#reportModal" data-toggle="modal" data-target="#reportModal">举报</li>
                     </ul>
+                    
                 </div>
                 <div class="owner_detail">
-                    <p class="time">2017-04-30</p>
+                        <img src="${path}/resources/user/img/user.jpg" class="ownerImg">
+                        <div>
+                            <span class="ownername">XXX</span>
+                            <span class="ownergrade">LV0</span>
+                            <p>发表图片<p>
+                        </div>
+                        <p class="time">2017-04-30</p>
                 </div>
             </li>
+            </c:forEach>
              <li>
                 <img src="${path}/resources/user/img/test.jpg">
                 <div class="pic_detail">
