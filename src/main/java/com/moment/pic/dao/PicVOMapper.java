@@ -1,5 +1,6 @@
 package com.moment.pic.dao;
 
+import com.moment.pic.domain.PicEX;
 import com.moment.pic.domain.PicVO;
 import com.moment.pic.domain.PicVOExample;
 import java.util.List;
@@ -16,6 +17,8 @@ public interface PicVOMapper {
 
     int insertSelective(PicVO record);
 
+    List<PicEX> selectPicDetailByExample(PicVOExample example);
+    
     List<PicVO> selectByExample(PicVOExample example);
 
     PicVO selectByPrimaryKey(Integer id);

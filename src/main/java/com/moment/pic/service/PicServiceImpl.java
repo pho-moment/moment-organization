@@ -18,6 +18,7 @@ import com.moment.common.util.TransTimestamp;
 import com.moment.datatables.domain.DataTablesRequest;
 import com.moment.datatables.domain.DataTablesResponse;
 import com.moment.pic.dao.PicVOMapper;
+import com.moment.pic.domain.PicEX;
 import com.moment.pic.domain.PicVO;
 import com.moment.pic.domain.PicVOExample;
 import com.moment.picCalendar.domain.PiccalendarVO;
@@ -79,6 +80,7 @@ public class PicServiceImpl implements PicService {
 		String token = auth.uploadToken(bucketname);
 		UploadManager manager = new UploadManager();
 		Response response = manager.put(b, fileName, token);
+		
 		if (response.isOK()) {
 			mapper.insertSelective(pic);
 		}
@@ -141,11 +143,11 @@ public class PicServiceImpl implements PicService {
 	}
 
 	@Override
-	public List<PicVO> getPicList(String type) throws Throwable {
+	public List<PicEX> getPicList(String type) throws Throwable {
 		PicVOExample example = new PicVOExample() ;
 		example.createCriteria().andTypeLike("%"+type+"%") ;
 		example.setOrderByClause("time desc");
-		return mapper.selectByExample(example);
+		return mapper.selectPicDetailByExample(example);
 	}
 	
 
@@ -157,16 +159,7 @@ public class PicServiceImpl implements PicService {
 		return mapper.selectByExample(example);
 		
 	}
-	public static void main(String[] args) throws Throwable {
-		SpringUtil.init("application.xml");
-		PicServiceImpl service = SpringUtil.getBean(PicServiceImpl.class) ;
-		String type = "" ;
-		List<PicVO> list = service.getPicList(type);
-		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
-			PicVO picVO = (PicVO) iterator.next();
-			System.out.println(picVO.toString());
-		}
-	}
+
 
 	
 }

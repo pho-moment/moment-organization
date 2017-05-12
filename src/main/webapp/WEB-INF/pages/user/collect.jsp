@@ -105,7 +105,7 @@
                 <a href="">干货</a>
             </li>
             <li class="userCenter">
-                <img src="${path}/resources/user/img/user.jpg" class="userImg userImgCenter">
+                <img src="${user.img}" class="userImg userImgCenter">
                     <ul class="centerList hidden">
                         <li>
                             <a href="${path}/user/center.action" class="user">个人中心</a>
@@ -129,7 +129,7 @@
 <div class="container">
 <div class="detail_block">
 		<div>
-			<img src="${path}/resources/user/img/user.jpg">
+			<img src="${user.img}">
 			<div>
 				<div>
 					<ul class="imgBelow">

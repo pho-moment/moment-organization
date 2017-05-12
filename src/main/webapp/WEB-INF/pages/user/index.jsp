@@ -113,8 +113,8 @@
 	<div class="top_content">
 		<header>
 			<div>
-				<ul>
-					<li><a href="${path}/user/index.action"><img
+				<ul  >
+					<li ><a href="${path}/user/index.action"><img
 							src="${path}/resources/user/img/logo.png" class="logo"></a></li>
 					<li><a href="${path}/user/index.action">首页</a></li>
 					<li><a href="">外拍</a></li>
@@ -124,7 +124,7 @@
 
 						<c:when test="${sessionScope.user!=null}">
 							<li class="userCenter"><img
-								src="${path}/resources/user/img/user.jpg"
+								src="${user.img }"
 								class="userImg userImgCenter">
 								<ul class="centerList hidden">
 									<li><a href="${path}/user/center.action" class="user">个人中心</a>
@@ -166,9 +166,9 @@
 	</div>
 	<div class="container">
 		<div class="pic_waterfall">
-			<ul>
+			<ul id="waterfall_ul">
 				<c:if test="${sessionScope.user!=null}">
-					<li class="user_card">
+					<li class="pic_card">
 						<div class="picCalendar">
 							<img src="${path}/resources/user/img/calendar.jpg">
 							<div class="calendar">
@@ -186,7 +186,7 @@
 						</div>
 						<div>
 							<div class="userSetting">
-								<a href=""><img src="${path}/resources/user/img/user.jpg"
+								<a href=""><img src="${user.img }"
 									class="userImg"></a> <span class="username">不醉不会</span> <a
 									href="${path}/user/setting.action"><button class="setting">
 									</button></a>
@@ -298,7 +298,7 @@
 						</div>
 					</li>
 				</c:if>
-				<li><img src="${path}/resources/user/img/test.jpg">
+				<li class="pic_card"><img src="${path}/resources/user/img/test.jpg">
 					<div class="pic_detail">
 						<h4 class="picname">图片名称孩图片名称孩</h4>
 						<p class="picdesc">图片描述图片描述</p>
@@ -315,12 +315,117 @@
 						<div>
 							<span class="ownername">XXX</span> <span class="ownergrade">LV0</span>
 							<p>发表图片
-							<p>
+							</p>
+						</div>
+						<p class="time">2017-04-30</p>
+					</div></li>
+					<li class="pic_card"><img src="${path}/resources/user/img/test2.jpg">
+					<div class="pic_detail">
+						<h4 class="picname">图片名称孩图片名称孩</h4>
+						<p class="picdesc">图片描述图片描述</p>
+						<ul>
+							<li class="like "><span class="piclike">12</span></li>
+							<li class="collect"><span class="piccollect">12</span></li>
+							<li class="comment"><span class="piccollect">12</span></li>
+							<li class="report" data-toggle="modal" data-target="#reportModal"
+								data-toggle="modal" data-target="#reportModal">举报</li>
+						</ul>
+					</div>
+					<div class="owner_detail">
+						<img src="${path}/resources/user/img/user.jpg" class="ownerImg">
+						<div>
+							<span class="ownername">XXX</span> <span class="ownergrade">LV0</span>
+							<p>发表图片
+							</p>
+						</div>
+						<p class="time">2017-04-30</p>
+					</div></li>
+					<li class="pic_card"><img src="${path}/resources/user/img/test3.jpg">
+					<div class="pic_detail">
+						<h4 class="picname">图片名称孩图片名称孩</h4>
+						<p class="picdesc">图片描述图片描述</p>
+						<ul>
+							<li class="like "><span class="piclike">12</span></li>
+							<li class="collect"><span class="piccollect">12</span></li>
+							<li class="comment"><span class="piccollect">12</span></li>
+							<li class="report" data-toggle="modal" data-target="#reportModal"
+								data-toggle="modal" data-target="#reportModal">举报</li>
+						</ul>
+					</div>
+					<div class="owner_detail">
+						<img src="${path}/resources/user/img/user.jpg" class="ownerImg">
+						<div>
+							<span class="ownername">XXX</span> <span class="ownergrade">LV0</span>
+							<p>发表图片
+							</p>
+						</div>
+						<p class="time">2017-04-30</p>
+					</div></li>
+					<li class="pic_card"><img src="${path}/resources/user/img/test.jpg">
+					<div class="pic_detail">
+						<h4 class="picname">图片名称孩图片名称孩</h4>
+						<p class="picdesc">图片描述图片描述</p>
+						<ul>
+							<li class="like "><span class="piclike">12</span></li>
+							<li class="collect"><span class="piccollect">12</span></li>
+							<li class="comment"><span class="piccollect">12</span></li>
+							<li class="report" data-toggle="modal" data-target="#reportModal"
+								data-toggle="modal" data-target="#reportModal">举报</li>
+						</ul>
+					</div>
+					<div class="owner_detail">
+						<img src="${path}/resources/user/img/user.jpg" class="ownerImg">
+						<div>
+							<span class="ownername">XXX</span> <span class="ownergrade">LV0</span>
+							<p>发表图片
+							</p>
+						</div>
+						<p class="time">2017-04-30</p>
+					</div></li>
+					<li class="pic_card"><img src="${path}/resources/user/img/user.jpg">
+					<div class="pic_detail">
+						<h4 class="picname">图片名称孩图片名称孩</h4>
+						<p class="picdesc">图片描述图片描述</p>
+						<ul>
+							<li class="like "><span class="piclike">12</span></li>
+							<li class="collect"><span class="piccollect">12</span></li>
+							<li class="comment"><span class="piccollect">12</span></li>
+							<li class="report" data-toggle="modal" data-target="#reportModal"
+								data-toggle="modal" data-target="#reportModal">举报</li>
+						</ul>
+					</div>
+					<div class="owner_detail">
+						<img src="${path}/resources/user/img/user.jpg" class="ownerImg">
+						<div>
+							<span class="ownername">XXX</span> <span class="ownergrade">LV0</span>
+							<p>发表图片
+							</p>
+						</div>
+						<p class="time">2017-04-30</p>
+					</div></li>
+					<li class="pic_card"><img src="${path}/resources/user/img/test.jpg">
+					<div class="pic_detail">
+						<h4 class="picname">图片名称孩图片名称孩</h4>
+						<p class="picdesc">图片描述图片描述</p>
+						<ul>
+							<li class="like "><span class="piclike">12</span></li>
+							<li class="collect"><span class="piccollect">12</span></li>
+							<li class="comment"><span class="piccollect">12</span></li>
+							<li class="report" data-toggle="modal" data-target="#reportModal"
+								data-toggle="modal" data-target="#reportModal">举报</li>
+						</ul>
+					</div>
+					<div class="owner_detail">
+						<img src="${path}/resources/user/img/user.jpg" class="ownerImg">
+						<div>
+							<span class="ownername">XXX</span> <span class="ownergrade">LV0</span>
+							<p>发表图片
+							</p>
 						</div>
 						<p class="time">2017-04-30</p>
 					</div></li>
 				<c:forEach items="${picList }" var="pic">
-					<li><img src="${pic.picpath }">
+					<li class="pic_card"><img src="${pic.picpath }">
 						<div class="pic_detail">
 							<h4 class="picname">
 								<c:out value="${pic.name }"></c:out>
@@ -351,12 +456,6 @@
 							<p class="time">2017-04-30</p>
 						</div></li>
 				</c:forEach>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
 			</ul>
 		</div>
 		<!-- 举报按钮触发模态框 -->
@@ -393,7 +492,7 @@
 		</div>
 		<!-- /.modal -->
 	</div>
-	<footer> </footer>
+
 	<script src="${path}/resources/user/js/jquery-2.2.3.min.js"></script>
 	<script src="${path}/resources/user/js/bootstrap.min.js"></script>
 	<script src="${path}/resources/user/js/jquery.form.js"></script>

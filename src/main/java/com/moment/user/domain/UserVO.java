@@ -38,6 +38,8 @@ public class UserVO implements Serializable {
 
     private Integer likenum;
 
+    private String img;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -176,6 +178,14 @@ public class UserVO implements Serializable {
         this.likenum = likenum;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -199,6 +209,7 @@ public class UserVO implements Serializable {
         sb.append(", fansnum=").append(fansnum);
         sb.append(", concernnum=").append(concernnum);
         sb.append(", likenum=").append(likenum);
+        sb.append(", img=").append(img);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -232,7 +243,8 @@ public class UserVO implements Serializable {
             && (this.getCollectpicnum() == null ? other.getCollectpicnum() == null : this.getCollectpicnum().equals(other.getCollectpicnum()))
             && (this.getFansnum() == null ? other.getFansnum() == null : this.getFansnum().equals(other.getFansnum()))
             && (this.getConcernnum() == null ? other.getConcernnum() == null : this.getConcernnum().equals(other.getConcernnum()))
-            && (this.getLikenum() == null ? other.getLikenum() == null : this.getLikenum().equals(other.getLikenum()));
+            && (this.getLikenum() == null ? other.getLikenum() == null : this.getLikenum().equals(other.getLikenum()))
+            && (this.getImg() == null ? other.getImg() == null : this.getImg().equals(other.getImg()));
     }
 
     @Override
@@ -256,6 +268,7 @@ public class UserVO implements Serializable {
         result = prime * result + ((getFansnum() == null) ? 0 : getFansnum().hashCode());
         result = prime * result + ((getConcernnum() == null) ? 0 : getConcernnum().hashCode());
         result = prime * result + ((getLikenum() == null) ? 0 : getLikenum().hashCode());
+        result = prime * result + ((getImg() == null) ? 0 : getImg().hashCode());
         return result;
     }
 }

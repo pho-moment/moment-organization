@@ -85,7 +85,7 @@
                 <a href="">干货</a>
             </li>
             <li class="userCenter">
-                <img src="${path}/resources/user/img/user.jpg" class="userImg userImgCenter">
+                <img src="${user.img}" class="userImg userImgCenter">
                     <ul class="centerList hidden">
                         <li>
                             <a href="${path}/user/center.action" class="user">个人中心</a>
@@ -122,7 +122,7 @@
 
              <!-- Current avatar -->
             <div class="avatar-view" title="Change the avatar">
-                <img src="${path}/resources/user/img/user.jpg" alt="Avatar">
+                <img src="${user.img}" alt="Avatar">
             </div>
 
             <!-- Cropping modal -->

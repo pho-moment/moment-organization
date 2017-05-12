@@ -19,6 +19,7 @@
     <result column="fansnum" property="fansnum" jdbcType="INTEGER" />
     <result column="concernnum" property="concernnum" jdbcType="INTEGER" />
     <result column="likenum" property="likenum" jdbcType="INTEGER" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -80,7 +81,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, sex, name, account, phonum, email, salt, password, time, score, gradeid, picnum, 
-    collectnum, collectPicnum, fansnum, concernnum, likenum
+    collectnum, collectPicnum, fansnum, concernnum, likenum, img
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.moment.user.domain.UserVOExample" >
     select
@@ -126,13 +127,15 @@
       salt, password, time, 
       score, gradeid, picnum, 
       collectnum, collectPicnum, fansnum, 
-      concernnum, likenum)
+      concernnum, likenum, img
+      )
     values (#{id,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{account,jdbcType=VARCHAR}, #{phonum,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{salt,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
       #{score,jdbcType=INTEGER}, #{gradeid,jdbcType=INTEGER}, #{picnum,jdbcType=INTEGER}, 
       #{collectnum,jdbcType=INTEGER}, #{collectpicnum,jdbcType=INTEGER}, #{fansnum,jdbcType=INTEGER}, 
-      #{concernnum,jdbcType=INTEGER}, #{likenum,jdbcType=INTEGER})
+      #{concernnum,jdbcType=INTEGER}, #{likenum,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.moment.user.domain.UserVO" useGeneratedKeys="true" keyProperty="id" >
     insert into user
@@ -188,6 +191,9 @@
       <if test="likenum != null" >
         likenum,
       </if>
+      <if test="img != null" >
+        img,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -240,6 +246,9 @@
       </if>
       <if test="likenum != null" >
         #{likenum,jdbcType=INTEGER},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -303,6 +312,9 @@
       <if test="record.likenum != null" >
         likenum = #{record.likenum,jdbcType=INTEGER},
       </if>
+      <if test="record.img != null" >
+        img = #{record.img,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -326,7 +338,8 @@
       collectPicnum = #{record.collectpicnum,jdbcType=INTEGER},
       fansnum = #{record.fansnum,jdbcType=INTEGER},
       concernnum = #{record.concernnum,jdbcType=INTEGER},
-      likenum = #{record.likenum,jdbcType=INTEGER}
+      likenum = #{record.likenum,jdbcType=INTEGER},
+      img = #{record.img,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -382,6 +395,9 @@
       <if test="likenum != null" >
         likenum = #{likenum,jdbcType=INTEGER},
       </if>
+      <if test="img != null" >
+        img = #{img,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -402,7 +418,8 @@
       collectPicnum = #{collectpicnum,jdbcType=INTEGER},
       fansnum = #{fansnum,jdbcType=INTEGER},
       concernnum = #{concernnum,jdbcType=INTEGER},
-      likenum = #{likenum,jdbcType=INTEGER}
+      likenum = #{likenum,jdbcType=INTEGER},
+      img = #{img,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

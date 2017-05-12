@@ -2,6 +2,7 @@ package com.moment.user.controller;
 
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.moment.common.domain.CurrentUser;
 import com.moment.common.domain.JsonResult;
+import com.moment.common.util.IDUtil;
 import com.moment.common.util.RegexValidateUtil;
 import com.moment.grade.domain.GradeVO;
 import com.moment.grade.service.GradeService;
@@ -77,6 +79,10 @@ public class UserController {
 			mv.setViewName("user/login");
 			request.setAttribute("msg", "注册成功，请登录！");
 			try {
+				//设置默认用户头像
+				user.setImg("http://ooys7gpai.bkt.clouddn.com/8e5ff227-0e2f-4dec-97a4-b623b9a12596");
+				//设置用户名为随机的8位数
+				user.setName(IDUtil.uuid().substring(0,7));
 				service.addUser(user);
 			} catch (Throwable e) {
 				e.printStackTrace();
@@ -152,20 +158,10 @@ public class UserController {
 		}
 	}
 	@RequestMapping("/index")
-	public String index(HttpSession session,String type){
-		List<PicVO> picList = null ;
-		if(type==null){
-			type = "" ;
-		}
-		System.out.println(type);
-		try {
-			picList = pservice.getPicList(type) ;
-			session.setAttribute("picList", picList);
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
+	public String index(){
 		return "user/index";
 	}
+	
 	@RequestMapping("/setting")
 	public String setting(){
 		return "user/setting";

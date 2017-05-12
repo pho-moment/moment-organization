@@ -69,6 +69,7 @@
 						<value>register.action</value>
 						<value>doregister.action</value>
 						<value>index.action</value>
+						<value>getPicList.action</value>
 					</list>
 				</property>
 			</bean>

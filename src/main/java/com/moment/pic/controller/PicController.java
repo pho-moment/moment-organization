@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.moment.common.domain.CurrentUser;
 import com.moment.common.domain.JsonResult;
 import com.moment.grade.domain.GradeVO;
+import com.moment.pic.domain.PicEX;
 import com.moment.pic.domain.PicVO;
 import com.moment.pic.service.PicService;
 import com.moment.user.domain.UserVO;
@@ -92,5 +93,20 @@ public class PicController {
 			e.printStackTrace();
 		}
 		return "";
+	}
+	@RequestMapping("/getPicList")
+	public  @ResponseBody List<PicEX> getPicList(String type){
+		List<PicEX> picList = null ;
+		if(type==null){
+			type = "" ;
+		}
+		System.out.println(type);
+		try {
+			picList = service.getPicList(type) ;
+			System.out.println(picList);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		return picList;
 	}
 }

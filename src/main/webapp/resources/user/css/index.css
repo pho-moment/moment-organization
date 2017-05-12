@@ -66,7 +66,7 @@ header>div>ul>li>a{
     padding: 16px 35px 10px 10px;
 }
 header>div>ul>li:nth-child(6) a {
-    padding: 7px!important;
+    padding: 7px;
 }
 .search_block ,ul{
     clear: both;
@@ -101,7 +101,7 @@ ul.centerList li {
 }
 ul.centerList li a {
   color: #000;
-    padding: 7px 11px 9px 35px;
+    padding: 7px 11px 9px 35px!important;
     display: block;
    width: 106px;
 }
@@ -159,7 +159,7 @@ ul.centerList>li:last-child {
 }
 /*摄影日志*/
 .picCalendar img {
-   width: 185px!important;
+       width: 205px!important;
     border: 2px solid  #ecbe79;
 }
 .picCalendar .calendar, .date {
@@ -169,7 +169,7 @@ ul.centerList>li:last-child {
     border: 2px solid  #ecbe79;
     border-top: none;
     padding:20px 0px 8px 6px;
-    width: 125px;
+    width: 145px;
 }
 .picCalendar .date {
     border: 2px solid #ecbe79;
@@ -218,15 +218,6 @@ button.upload_btn {
     margin-bottom: 10px;
     cursor: pointer;
 }
-.user_detail li {
-   display: inline-block;
-    width: 27%!important;
-    text-align: center;
-    padding: 5px 0px 5px 0px;
-    background-color: #f0f0f0!important;
-    margin-bottom: 10px!important;
-    margin-top: 10px!important;
-}
 .avatar-view{
     height: initial!important;
     width: initial!important;
@@ -240,8 +231,8 @@ button.upload_btn {
 }
 .pic_waterfall ul>li {
     float: left;
-    width: 190px;
-    margin-left: 9px;
+    width: 205px;
+    margin-left: 25px;
     background-color: #fff;
     margin-top: 20px;
     padding-bottom: 10px;
@@ -249,6 +240,17 @@ button.upload_btn {
 .pic_waterfall ul>li img {
     width: 100%;
     display: block;
+}
+.pic_detail {
+    padding: 5px 0px 5px 5px;
+}
+.user_detail li {
+     display: inline-block;
+    width: 27%!important;
+    text-align: center;
+    padding: 5px 0px 5px 0px;
+    background-color: #f0f0f0!important;
+    margin: 10px 5px 10px 7px!important;
 }
 .pic_detail {
     padding: 5px 0px 5px 5px;
@@ -425,5 +427,44 @@ header ul>li a:hover{
 	background-color: #ecbe79;
 	color:#fff;
 }
-/*字符图标*/
+
+
+/*图片瀑布流hover样式*/
+@-webkit-keyframes shade{
+    from{opacity:1;}
+    15%{opacity:0.4;}
+    to{opacity:1;}
+}
+@-moz-keyframes shade{
+    from{opacity:1;}
+    15%{opacity:0.4;}
+    to{opacity:1;}
+}
+@-ms-keyframes shade{
+    from{opacity:1;}
+    15%{opacity:0.4;}
+    to{opacity:1;}
+}
+@-o-keyframes shade{
+    from{opacity:1;}
+    15%{opacity:0.4;}
+    to{opacity:1;}
+}
+@keyframes shade{
+    from{opacity:1;}
+    15%{opacity:0.4;}
+    to{opacity:1;}
+}
+/* wrap */
+#waterfall_ul{width:auto;height:auto;margin:0 auto;position:relative;}
+.pic_card{
+      box-shadow: 1px -2px 14px #999;
+}
+.pic_card>img:hover{
+    -webkit-animation:shade 3s ease-in-out 1;
+    -moz-animation:shade 3s ease-in-out 1;
+    -ms-animation:shade 3s ease-in-out 1;
+    -o-animation:shade 3s ease-in-out 1;
+    animation:shade 3s ease-in-out 1;
+}
 

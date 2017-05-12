@@ -267,25 +267,12 @@
     submitDone: function (data) {
       console.log(data);
 
-      if ($.isPlainObject(data) && data.state === 200) {
-        if (data.result) {
-          this.url = data.result;
-
-          if (this.support.datauri || this.uploaded) {
-            this.uploaded = false;
+      if ($.isPlainObject(data) && data.status ==1) {
+    	  	alert(data.msg);
             this.cropDone();
-          } else {
-            this.uploaded = true;
-            this.$avatarSrc.val(this.url);
-            this.startCropper();
-          }
-
-          this.$avatarInput.val('');
-        } else if (data.message) {
-          this.alert(data.message);
-        }
+            location.reload();
       } else {
-        this.alert('Failed to response');
+        this.alert(data.msg);
       }
     },
 

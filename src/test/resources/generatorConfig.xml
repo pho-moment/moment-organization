@@ -30,25 +30,25 @@
 		
 		 <jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql:///moment?characterEncoding=UTF-8" userId="root"
-			password="123456">
+			password="xiaoxun694686">
 		</jdbcConnection>
 
 		<!-- model的配置 -->
-		<javaModelGenerator targetPackage="com.moment.pic.domain"
+		<javaModelGenerator targetPackage="com.moment.user.domain"
 			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
 		<!-- mybatis的xml的配置 --> 	
-		<sqlMapGenerator targetPackage="com.moment.pic.dao"
+		<sqlMapGenerator targetPackage="com.moment.user.dao"
 			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
 		<!-- mapper的配置 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.moment.pic.dao" targetProject="src/main/java">
+			targetPackage="com.moment.user.dao" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		
