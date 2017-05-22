@@ -183,7 +183,7 @@ public class UserVO implements Serializable {
     }
 
     public void setImg(String img) {
-        this.img = img;
+        this.img = img == null ? null : img.trim();
     }
 
     @Override

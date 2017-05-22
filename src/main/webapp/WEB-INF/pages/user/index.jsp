@@ -40,7 +40,6 @@
 	width: 35px;
 	display: inline-block;
 	border: none;
-	background-color: rgba(224, 224, 224, 0.84);
 	float: right;
 	cursor: pointer;
 }
@@ -52,7 +51,6 @@
 	width: 35px;
 	display: inline-block;
 	border: none;
-	background-color: rgba(224, 224, 224, 0.84);
 	float: right;
 	cursor: pointer;
 }
@@ -64,7 +62,6 @@
 	width: 35px;
 	display: inline-block;
 	border: none;
-	background-color: rgba(224, 224, 224, 0.84);
 	float: right;
 	cursor: pointer;
 }
@@ -76,7 +73,6 @@
 	width: 35px;
 	display: inline-block;
 	border: none;
-	background-color: rgba(224, 224, 224, 0.84);
 	float: right;
 	cursor: pointer;
 }
@@ -169,7 +165,8 @@
 			<ul id="waterfall_ul">
 				<c:if test="${sessionScope.user!=null}">
 					<li class="pic_card">
-						<div class="picCalendar">
+						<div class="piccardDiv">
+							<div class="picCalendar">
 							<img src="${path}/resources/user/img/calendar.jpg">
 							<div class="calendar">
 								<p class="calendar_description">只能七个字以内</p>
@@ -186,8 +183,8 @@
 						</div>
 						<div>
 							<div class="userSetting">
-								<a href=""><img src="${user.img }"
-									class="userImg"></a> <span class="username">不醉不会</span> <a
+								<a href="${path}/user/setting.action"><img src="${user.img }"
+									class="userImg"></a> <span class="username">${user.name }</span> <a
 									href="${path}/user/setting.action"><button class="setting">
 									</button></a>
 							</div>
@@ -230,7 +227,7 @@
 														<!-- 上传图片 -->
 														<div class="avatar-upload">
 															<input class="avatar-src" name="avatar_src" type="hidden">
-															<input class="avatar-data" name="avatar_data"
+															<input class="avatar-data" name="imgdata"
 																type="hidden"> <label for="avatarInput">选择照片上传</label>
 															<input class="avatar-input" id="avatarInput" name="file"
 																type="file">
@@ -280,7 +277,6 @@
 														<!--控制图片的旋转-->
 														<div class="row avatar-btns">
 															<button class="btn  btn-block avatar-save" type="submit">上传照片</button>
-															<button class="btn  btn-block avatar-save" type="submit">生成日志</button>
 														</div>
 													</div>
 												</div>
@@ -296,9 +292,12 @@
 							</div>
 
 						</div>
+						</div>
 					</li>
 				</c:if>
-				<li class="pic_card"><img src="${path}/resources/user/img/test.jpg">
+				<li class="pic_card">
+					<div class="piccardDiv">
+						<img src="${path}/resources/user/img/test.jpg">
 					<div class="pic_detail">
 						<h4 class="picname">图片名称孩图片名称孩</h4>
 						<p class="picdesc">图片描述图片描述</p>
@@ -318,8 +317,12 @@
 							</p>
 						</div>
 						<p class="time">2017-04-30</p>
-					</div></li>
-					<li class="pic_card"><img src="${path}/resources/user/img/test2.jpg">
+					</div>
+					</div>
+				</li>
+					<li class="pic_card">
+						<div class="piccardDiv">
+						<img src="${path}/resources/user/img/test2.jpg">
 					<div class="pic_detail">
 						<h4 class="picname">图片名称孩图片名称孩</h4>
 						<p class="picdesc">图片描述图片描述</p>
@@ -339,8 +342,12 @@
 							</p>
 						</div>
 						<p class="time">2017-04-30</p>
-					</div></li>
-					<li class="pic_card"><img src="${path}/resources/user/img/test3.jpg">
+					</div>
+						</div>
+					</li>
+					<li class="pic_card">
+						<div class="piccardDiv">
+						<img src="${path}/resources/user/img/test3.jpg">
 					<div class="pic_detail">
 						<h4 class="picname">图片名称孩图片名称孩</h4>
 						<p class="picdesc">图片描述图片描述</p>
@@ -360,8 +367,14 @@
 							</p>
 						</div>
 						<p class="time">2017-04-30</p>
-					</div></li>
-					<li class="pic_card"><img src="${path}/resources/user/img/test.jpg">
+					</div>
+						</div>
+					
+					</li>
+					<li class="pic_card">
+						<div class="piccardDiv">
+						
+					<img src="${path}/resources/user/img/test.jpg">
 					<div class="pic_detail">
 						<h4 class="picname">图片名称孩图片名称孩</h4>
 						<p class="picdesc">图片描述图片描述</p>
@@ -381,8 +394,12 @@
 							</p>
 						</div>
 						<p class="time">2017-04-30</p>
-					</div></li>
-					<li class="pic_card"><img src="${path}/resources/user/img/user.jpg">
+					</div>
+						</div>
+					</li>
+					<li class="pic_card">
+						<div class="piccardDiv">
+							<img src="${path}/resources/user/img/user.jpg">
 					<div class="pic_detail">
 						<h4 class="picname">图片名称孩图片名称孩</h4>
 						<p class="picdesc">图片描述图片描述</p>
@@ -402,8 +419,13 @@
 							</p>
 						</div>
 						<p class="time">2017-04-30</p>
-					</div></li>
-					<li class="pic_card"><img src="${path}/resources/user/img/test.jpg">
+					</div>
+						
+						</div>
+					</li>
+					<li class="pic_card">
+						<div class="piccardDiv">
+							<img src="${path}/resources/user/img/test.jpg">
 					<div class="pic_detail">
 						<h4 class="picname">图片名称孩图片名称孩</h4>
 						<p class="picdesc">图片描述图片描述</p>
@@ -423,7 +445,11 @@
 							</p>
 						</div>
 						<p class="time">2017-04-30</p>
-					</div></li>
+					</div>
+						</div>
+					</li>
+				<!-- 
+				
 				<c:forEach items="${picList }" var="pic">
 					<li class="pic_card"><img src="${pic.picpath }">
 						<div class="pic_detail">
@@ -456,6 +482,7 @@
 							<p class="time">2017-04-30</p>
 						</div></li>
 				</c:forEach>
+				 -->
 			</ul>
 		</div>
 		<!-- 举报按钮触发模态框 -->

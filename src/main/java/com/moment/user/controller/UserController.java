@@ -1,6 +1,8 @@
 package com.moment.user.controller;
 
 
+import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,20 +13,27 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.moment.common.domain.CurrentUser;
 import com.moment.common.domain.JsonResult;
+import com.moment.common.util.File2MultipartFile;
 import com.moment.common.util.IDUtil;
+import com.moment.common.util.PicCropper;
 import com.moment.common.util.RegexValidateUtil;
 import com.moment.grade.domain.GradeVO;
 import com.moment.grade.service.GradeService;
+import com.moment.pic.domain.Cropper;
 import com.moment.pic.domain.PicVO;
 import com.moment.pic.service.PicService;
 import com.moment.user.domain.UserVO;
 import com.moment.user.service.UserService;
+import com.qiniu.http.Response;
 
 
 @Controller
@@ -37,14 +46,32 @@ public class UserController {
 	@Autowired
 	private PicService pservice ;
 		
-	
+	@RequestMapping("/checkAccount")
+	public @ResponseBody JsonResult checkAccount(String account,JsonResult jsonResult){
+			UserVO user=null;
+			System.out.println(account);
+			try {
+				user = service.getUserByAccount(account);
+				System.out.println(user);
+			} catch (Throwable e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(user!=null){
+				jsonResult.setMsg("该账号已经被注册");
+				jsonResult.setStatus(0);
+			}else{
+				jsonResult.setStatus(1);
+			}
+		    return jsonResult;
+		    
+	}
 	@RequestMapping("/doregister")
 	public ModelAndView doRegister(HttpServletRequest request,UserVO user){
 		ModelAndView mv = new ModelAndView();
 		
 		//获取用户的账号
 		String account = user.getAccount();
-		System.out.println(account);
 		//用正则表达式检查用户输入的内容是否是邮箱或手机号
 		if(RegexValidateUtil.checkEmail(account)||RegexValidateUtil.checkMobileNumber(account)){
 			if(RegexValidateUtil.checkEmail(account)){
@@ -205,4 +232,69 @@ public class UserController {
 		System.out.println(a);
 		return model;
 	}*/
+	//上传头像
+	@Transactional
+	@RequestMapping("/doupload")
+	public @ResponseBody JsonResult doUpload(MultipartFile file,HttpSession session,JsonResult result,String imgdata) throws Throwable {
+			System.out.println(imgdata);
+			System.out.println("裁剪前："+file.getSize());
+			Cropper cropper=JSONObject.parseObject(imgdata,Cropper.class);
+			
+			//头像大小不得超过1024kb
+			if(file.getSize()>512000){
+				result.setMsg("头像大小不得超过500k");
+				result.setStatus(0);
+			}else{
+				String originName=file.getOriginalFilename();
+				String format=originName.substring(originName.lastIndexOf('.'));
+				System.out.println(format);
+				if((!".jpeg".equals(format))&&(!".jpg".equals(format))&&(!".png".equals(format))&&(!".gif".equals(format))){
+					result.setMsg("图片格式须为jpeg,jpg,png,gif其中一种");
+					result.setStatus(0);
+				}else{
+					//对图片进行裁剪
+		            MultipartFile file2=PicCropper.cut(file, cropper.getX(),cropper.getY(),cropper.getWidth(),cropper.getHeight()); 
+					byte[] newFile = file2.getBytes();
+					System.out.println("裁剪后："+file2.getSize());
+					System.out.println(file2);
+					String path=service.doUpload(file2.getBytes());
+					System.out.println(path);
+					if(path!=null){
+						result.setMsg(path);
+						result.setStatus(1);
+					}else{
+						result.setMsg("头像更新失败");
+						result.setStatus(0);
+					}
+				}
+			}
+			return result;
+	}
+	@RequestMapping("/update")
+	public @ResponseBody JsonResult update(UserVO user,HttpSession session,JsonResult result) throws Throwable {
+			System.out.println(user);
+			int a=service.updateUser(user);
+			if(a>0){
+				result.setMsg("更新成功");
+				result.setStatus(1);
+				session.setAttribute("user", service.getUserById(user.getId()));
+			}else{
+				result.setMsg("更新失败");
+				result.setStatus(0);
+			}
+			return result;
+	}
+	@RequestMapping("/validate")
+	public @ResponseBody JsonResult validate(Integer id,String password,JsonResult result) throws Throwable {
+			boolean flag=service.validate(id, password);
+			if(flag){
+				result.setMsg("密码正确");
+				result.setStatus(1);
+			}else{
+				result.setMsg("密码错误");
+				result.setStatus(0);
+			}
+			return result;
+	}
+
 }

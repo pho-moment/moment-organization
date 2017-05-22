@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.alibaba.fastjson.JSONObject;
 import com.moment.common.domain.CurrentUser;
 import com.moment.common.domain.JsonResult;
+import com.moment.common.util.PicCropper;
 import com.moment.grade.domain.GradeVO;
+import com.moment.pic.domain.Cropper;
 import com.moment.pic.domain.PicEX;
 import com.moment.pic.domain.PicVO;
 import com.moment.pic.service.PicService;
@@ -37,7 +40,7 @@ public class PicController {
 
 	@Transactional
 	@RequestMapping("/doupload")
-	public @ResponseBody JsonResult doUpload(MultipartFile file, PicVO pic,HttpSession session) throws Throwable {
+	public @ResponseBody JsonResult doUpload(MultipartFile file, PicVO pic,HttpSession session,String imgdata) throws Throwable {
 		CurrentUser cuser = CurrentUser.getInstance();
 		service.updateUserGrade(cuser.getCurrentUser());
 		GradeVO grade = cuser.getGrade();
@@ -45,9 +48,14 @@ public class PicController {
 		int test = service.getPicnumByDate(cuser.getUserId()) ;
 		int test2 = grade.getUploadnum() ;
 		if (service.getPicnumByDate(cuser.getUserId()) < grade.getUploadnum()) {
-			byte[] b = file.getBytes();
+			//实现图片的裁剪
+			System.out.println(imgdata);
+			System.out.println("裁剪前："+file.getSize());
+			Cropper cropper=JSONObject.parseObject(imgdata,Cropper.class);
+			MultipartFile file2=PicCropper.cut(file, cropper.getX(),cropper.getY(),cropper.getWidth(),cropper.getHeight()); 
+			byte[] newFile = file2.getBytes();
 			pic.setUserid(cuser.getUserId());
-			service.doUpload(b, pic);
+			service.doUpload(newFile , pic);
 
 			result.setMsg("上传成功");
 			result.setStatus(1);

@@ -12,7 +12,7 @@
   'use strict';
 
   var console = window.console || { log: function () {} };
-
+  
   function CropAvatar($element) {
     this.$container = $element;
 
@@ -37,6 +37,7 @@
   }
 
   CropAvatar.prototype = {
+		  
     constructor: CropAvatar,
 
     support: {
@@ -200,15 +201,14 @@
           aspectRatio: 1,
           preview: this.$avatarPreview.selector,
           strict: false,
-          crop: function (data) {
+          crop: function (cropperData) {
             var json = [
-                  '{"x":' + data.x,
-                  '"y":' + data.y,
-                  '"height":' + data.height,
-                  '"width":' + data.width,
-                  '"rotate":' + data.rotate + '}'
-                ].join();
-
+                  '{"x":' + cropperData.x,
+                  '"y":' + cropperData.y,
+                  '"height":' +cropperData.height,
+                  '"width":' + cropperData.width,
+                  '"rotate":' + cropperData.rotate + '}'
+                ];
             _this.$avatarData.val(json);
           }
         });
@@ -226,13 +226,15 @@
     },
 
     ajaxUpload: function () {
+      var cropperData=JSON.parse(this.$avatarData.val());
       var url = this.$avatarForm.attr('action'),
-          data = new FormData(this.$avatarForm[0]),
+          data =new FormData(this.$avatarForm[0]),
           _this = this;
-
+      
       $.ajax(url, {
         type: 'post',
         data: data,
+        contentType: "multipart/form-data",
         dataType: 'json',
         processData: false,
         contentType: false,
@@ -263,33 +265,20 @@
       this.$loading.fadeIn();
     },
 
-    submitDone: function (data) {
-      console.log(data);
-
-      if ($.isPlainObject(data) && data.state === 200) {
-        if (data.result) {
-          this.url = data.result;
-
-          if (this.support.datauri || this.uploaded) {
-            this.uploaded = false;
-            this.cropDone();
-          } else {
-            this.uploaded = true;
-            this.$avatarSrc.val(this.url);
-            this.startCropper();
-          }
-
-          this.$avatarInput.val('');
-        } else if (data.message) {
-          this.alert(data.message);
-        }
+    submitDone: function (returndata) {
+      console.log(returndata);
+      
+      if ( returndata.status == 1) {
+        $("#userImg").attr("src",returndata.msg);
+        $("#userImgHidden").attr("value",returndata.msg);
+        this.cropDone();
       } else {
-        this.alert('Failed to response');
+        this.alert(data.msg);
       }
     },
 
-    submitFail: function (msg) {
-      this.alert(msg);
+    submitFail: function (data) {
+      this.alert("头像更新失败");
     },
 
     submitEnd: function () {
@@ -298,7 +287,7 @@
 
     cropDone: function () {
       this.$avatarForm.get(0).reset();
-      this.$avatar.attr('src', this.url);
+//      this.$avatar.attr('src', this.url);
       this.stopCropper();
       this.$avatarModal.modal('hide');
     },
@@ -314,7 +303,25 @@
       this.$avatarUpload.after($alert);
     }
   };
-
+  function validate_img(a){
+	  var file = a.value;
+	  if(!/.(gif|jpg|jpeg|png|GIF|JPG|png)$/.test(file)){
+	   alert("图片类型必须是.gif,jpeg,jpg,png中的一种");
+	   return false;
+	 }else{
+	      var image = new Image();
+	      image.src = file;
+	      var height = image.height;
+	      var width = image.width;
+	      var filesize = image.filesize;
+	       alert(height+"x.."+filesize);
+	      if(width>80 && height>80 && filesize>102400){
+	       alert('请上传80*80像素 或者大小小于100k的图片');
+	       return false;
+	      }
+	  }
+	  alert("图片通过");
+	 }
   $(function () {
     return new CropAvatar($('#crop-avatar'));
   });

@@ -94,15 +94,19 @@ jQuery(document).ready(function($) {
                 var pic_card= document.createElement('li');
                 pic_card.className = 'pic_card';
                 waterfallUl.appendChild(pic_card);
+                //创建div
+                var piccardDiv= document.createElement('div');
+                piccardDiv.className = 'piccardDiv';
+                pic_card.appendChild(piccardDiv);
                 //创建img
                 var img = document.createElement('img');
-                pic_card.appendChild(img);
+                piccardDiv.appendChild(img);
                  img.src = piclist[i].picpath;
                 img.style.height = 'auto';
                 //创建picDetail
                 var picDetail = document.createElement('div');
                 picDetail.className = 'pic_detail';
-                pic_card.appendChild(picDetail);
+                piccardDiv.appendChild(picDetail);
                 //创建picdetail中的标题
                 var picname = document.createElement('h4');
                 picname.className = 'picname';
@@ -152,7 +156,7 @@ jQuery(document).ready(function($) {
                  //创建ownerDetail
                 var ownerDetail = document.createElement('div');
                 ownerDetail.className = 'owner_detail';
-                pic_card.appendChild(ownerDetail);
+                piccardDiv.appendChild(ownerDetail);
                 //创建用户头像
                 var userimg = document.createElement('img');
                 ownerDetail.appendChild(userimg);
@@ -220,10 +224,9 @@ function imgLocation(){
             其中第一排直接放在数组中。
              */
         if(index<num){
-            boxArr[index] = boxHeight+30;
+            boxArr[index] = boxHeight;
         }else{
             var minBoxHeight=Math.min.apply(null,boxArr);
-
             var minBoxIndex=$.inArray(minBoxHeight,boxArr);
             /*
                 当放置第二排时，需要考虑第一排的高度

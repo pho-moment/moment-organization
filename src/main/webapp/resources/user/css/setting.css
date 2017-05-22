@@ -143,7 +143,7 @@ div#crop-avatar {
 }
 div#crop-avatar {
     display: inline-block;
-    margin-left: 132px;
+    margin-left: 165px;
 }
 input[disabled] {
     padding: 5px;
@@ -151,12 +151,16 @@ input[disabled] {
     margin-right: 12px;
     text-indent: 20px;
 }
-button.set_pwd {
+span.set_pwd {
     background-color: #fff;
     border: none;
     outline: none;
     color: #3fa6f1;
     font-size: 15px;
+    cursor:pointer;
+}
+input[readonly] {
+    background-color: #E7E3E3;
 }
 .sub_btn {
     background-color:#63a8f1;

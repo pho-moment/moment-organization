@@ -83,6 +83,7 @@ header>div {
 header img.userImg {
     width: 30px!important;
     cursor: pointer;
+    height: 30px!important;
 }
 .userCenter{
     position: relative;
@@ -200,7 +201,7 @@ p.lunar_today {
 }
 /*个人名片*/
 .userSetting {
-    background-color: #f0f0f0;
+        background-color: rgba(241, 237, 237, 0.57)!important;
 }
 .userSetting img.userImg {
     width: 55px!important;
@@ -233,13 +234,22 @@ button.upload_btn {
     float: left;
     width: 205px;
     margin-left: 25px;
-    background-color: #fff;
     margin-top: 20px;
     padding-bottom: 10px;
 }
 .pic_waterfall ul>li img {
     width: 100%;
     display: block;
+}
+.pic_waterfall>ul>li {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 3px;
+}
+.piccardDiv {
+    box-shadow: 4px -6px 20px #999;
+    background-color: #fff;
+    margin: 10px 0 10px 0;
 }
 .pic_detail {
     padding: 5px 0px 5px 5px;
@@ -249,7 +259,7 @@ button.upload_btn {
     width: 27%!important;
     text-align: center;
     padding: 5px 0px 5px 0px;
-    background-color: #f0f0f0!important;
+    background-color: rgba(241, 237, 237, 0.57)!important;
     margin: 10px 5px 10px 7px!important;
 }
 .pic_detail {
@@ -268,7 +278,6 @@ p.picdesc {
     width: 35px!important;
     margin-top: 10px!important;
     margin-left: 2px!important;
-    margin-bottom: 17px;
 }
 .pic_detail span {
     padding-left: 18px;
@@ -293,11 +302,24 @@ li.report a {
     background-color: rgba(241, 237, 237, 0.57);
 }
 img.ownerImg {
-    width:  37px!important;
-    margin-top: -10px;
-    display: inline-block!important;
-
+    position: absolute;
+    width: 40px!important;
+    bottom: 17px;
 }
+.owner_detail span {
+    display: inline-block;
+    padding: 6px;
+}
+.owner_detail span:first-child {
+    margin-left: 39px;
+}
+.owner_detail p {
+    margin-left: 45px;
+    display: block;
+    color:#999;
+    padding-bottom: 1px;
+}
+
 .owner_detail>div {
     display: inline-block;
     font-size: 13px;
@@ -307,10 +329,11 @@ img.ownerImg {
 p.time {
     display: inline-block;
     font-size: 12px;
-    color: #666;
+    color: #999;
     float: right;
-    margin-top: 22px;
-    margin-right: 2px;
+    position: absolute;
+    bottom: 12px;
+    right: 2px;
 }
 
 /*上传图片模块*/
@@ -457,9 +480,6 @@ header ul>li a:hover{
 }
 /* wrap */
 #waterfall_ul{width:auto;height:auto;margin:0 auto;position:relative;}
-.pic_card{
-      box-shadow: 1px -2px 14px #999;
-}
 .pic_card>img:hover{
     -webkit-animation:shade 3s ease-in-out 1;
     -moz-animation:shade 3s ease-in-out 1;

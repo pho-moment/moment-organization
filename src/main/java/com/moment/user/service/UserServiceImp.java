@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.moment.common.util.ConfigUtil;
 import com.moment.common.util.MD5Util;
 import com.moment.common.util.SearchConditionUtils;
 import com.moment.common.util.TransTimestamp;
@@ -18,6 +19,9 @@ import com.moment.pic.domain.PicVOExample;
 import com.moment.user.dao.UserVOMapper;
 import com.moment.user.domain.UserVO;
 import com.moment.user.domain.UserVOExample;
+import com.qiniu.http.Response;
+import com.qiniu.storage.UploadManager;
+import com.qiniu.util.Auth;
 
 
 @Service
@@ -43,6 +47,9 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public int updateUser(UserVO user) throws Throwable {
+		String salt=UUID.randomUUID().toString();
+		user.setSalt(salt);
+		user.setPassword(MD5Util.md5(user.getPassword()+salt));	//密码加盐
 		return mapper.updateByPrimaryKeySelective(user);
 
 	}
@@ -97,6 +104,35 @@ public class UserServiceImp implements UserService {
 			}
 		}
 		return null;
+	}
+	//上传用户头像
+	@Override
+	public String  doUpload(byte[] b) throws Throwable {
+		String bucketname = "moment";
+		String fileName = UUID.randomUUID().toString();
+		Auth auth = Auth.create(ConfigUtil.getValue("AccessKey"), ConfigUtil.getValue("SecretKey"));
+		String token = auth.uploadToken(bucketname);
+		UploadManager manager = new UploadManager();
+		Response response = manager.put(b, fileName, token);
+		if(response.isOK()){
+			String path=ConfigUtil.getValue("uri") + fileName;
+			return path;
+		}
+		return null;
+
+	}
+
+	@Override
+	public boolean validate(Integer id, String password) throws Throwable {
+		UserVO user=this.getUserById(id);
+		boolean flag=false;
+		if(user!=null){
+			String inputPwd=MD5Util.md5(password+user.getSalt());
+			if(user.getPassword().equals(inputPwd)){//验证通过
+				flag=true;
+			}
+		}
+		return flag;
 	}
 	
 }

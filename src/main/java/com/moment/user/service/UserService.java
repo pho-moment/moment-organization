@@ -6,6 +6,7 @@ import com.moment.datatables.domain.DataTablesRequest;
 import com.moment.datatables.domain.DataTablesResponse;
 import com.moment.grade.domain.GradeVO;
 import com.moment.user.domain.UserVO;
+import com.qiniu.http.Response;
 
 public interface UserService {
 	public int addUser(UserVO user) throws Throwable;
@@ -19,6 +20,10 @@ public interface UserService {
 	public List<UserVO> getUserByName(String name) throws Throwable;
 	//登陆检测
 	public UserVO checkLogin(String account,String password) throws Throwable;
+	//验证密码
+	public boolean validate(Integer id,String password) throws Throwable;
+	//上传用户头像
+	public String doUpload(byte[] b) throws Throwable ;
 	/**
 	 * 使用datatables的分页查询
 	 * @param request
