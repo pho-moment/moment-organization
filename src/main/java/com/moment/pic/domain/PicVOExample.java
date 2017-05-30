@@ -227,7 +227,7 @@ public class PicVOExample implements Serializable {
         }
 
         public Criteria andNameLike(String value) {
-            addCriterion("name like", value, "name");
+            addCriterion("pic.name like", value, "name");
             return (Criteria) this;
         }
 
@@ -297,7 +297,7 @@ public class PicVOExample implements Serializable {
         }
 
         public Criteria andDescriptionLike(String value) {
-            addCriterion("description like", value, "description");
+            addCriterion("pic.description like", value, "description");
             return (Criteria) this;
         }
 

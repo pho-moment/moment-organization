@@ -117,4 +117,19 @@ public class PicController {
 		}
 		return picList;
 	}
+	@RequestMapping("/getPicListByCondition")
+	public @ResponseBody List<PicEX> getPicListByCondition(String pickey){
+		List<PicEX> picList = null ;
+		if(pickey==null){
+			pickey = "" ;
+		}
+		System.out.println(pickey+1);
+		try {
+			picList = service.getPicListByCondition(pickey) ;
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		return picList;
+		
+	}
 }

@@ -71,6 +71,7 @@
 						<value>index.action</value>
 						<value>getPicList.action</value>
 						<value>checkAccount.action</value>
+						<value>getPicListByCondition.action</value>
 						
 					</list>
 				</property>

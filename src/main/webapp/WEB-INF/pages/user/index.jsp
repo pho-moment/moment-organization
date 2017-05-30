@@ -145,8 +145,8 @@
 		</header>
 		<div class="search_block">
 			<form>
-				<input type="text" placeholder="输入关键词">
-				<button class="search_btn search"></button>
+				<input type="text" placeholder="输入关键词" id="key">
+				<button class="search_btn search"  ></button>
 				<p>
 					<a href="${path }/user/index.action?type=黑白">黑白</a>&nbsp;|&nbsp; <a
 						href="${path }/user/index.action?type=风光">风光</a>&nbsp;|&nbsp; <a
@@ -164,7 +164,7 @@
 		<div class="pic_waterfall">
 			<ul id="waterfall_ul">
 				<c:if test="${sessionScope.user!=null}">
-					<li class="pic_card">
+					<li class="pic_card" id="main_window">
 						<div class="piccardDiv">
 							<div class="picCalendar">
 							<img src="${path}/resources/user/img/calendar.jpg">
@@ -295,7 +295,7 @@
 						</div>
 					</li>
 				</c:if>
-				<li class="pic_card">
+				<%-- <li class="pic_card">
 					<div class="piccardDiv">
 						<img src="${path}/resources/user/img/test.jpg">
 					<div class="pic_detail">
@@ -370,8 +370,8 @@
 					</div>
 						</div>
 					
-					</li>
-					<li class="pic_card">
+					</li> --%>
+					<%-- <li class="pic_card">
 						<div class="piccardDiv">
 						
 					<img src="${path}/resources/user/img/test.jpg">
@@ -447,7 +447,7 @@
 						<p class="time">2017-04-30</p>
 					</div>
 						</div>
-					</li>
+					</li> --%>
 				<!-- 
 				
 				<c:forEach items="${picList }" var="pic">

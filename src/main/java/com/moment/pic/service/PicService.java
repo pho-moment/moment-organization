@@ -26,4 +26,5 @@ public interface PicService {
 	public void updateUserGrade(UserVO user) throws Throwable ;
 	public List<PicEX> getPicList(String style) throws Throwable ;
 	public List<PicVO> getUserPicList(Integer id) throws Throwable ;
+	public List<PicEX> getPicListByCondition(String key) throws Throwable ;
 }

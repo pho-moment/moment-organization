@@ -76,6 +76,28 @@ jQuery(document).ready(function($) {
 		//防止页面进行刷新
 		return false;
 	}
+
+	
+	$("#key").next("button").click(function(){
+		var type = $("#key").val();
+		console.log(type) ;
+		$.ajax({
+			data:{'pickey':type},
+			url:'/moment/pic/getPicListByCondition.action',
+			dataType:"json",
+			success:function(data){
+				
+				$("#waterfall_ul").children("li").not("#main_window").remove() ;
+				piclist = data;
+				imgLocation();
+				loadPicList() ;
+				
+			}
+		});
+		//防止页面进行刷新
+		return false;
+	});
+	
 	
 	
 	
@@ -83,113 +105,118 @@ jQuery(document).ready(function($) {
 	//以下部分实现图片瀑布流
 	$(window).on("load",function(){
         imgLocation();
+        loadPicList() ;
          window.onscroll=function(){
         /*
             	通过屏幕的滚动来加载图片
          */
             if(scrollside()){
-                 var waterfallUl = document.getElementById('waterfall_ul');
-            for(i in piclist){
-                //创建li
-                var pic_card= document.createElement('li');
-                pic_card.className = 'pic_card';
-                waterfallUl.appendChild(pic_card);
-                //创建div
-                var piccardDiv= document.createElement('div');
-                piccardDiv.className = 'piccardDiv';
-                pic_card.appendChild(piccardDiv);
-                //创建img
-                var img = document.createElement('img');
-                piccardDiv.appendChild(img);
-                 img.src = piclist[i].picpath;
-                img.style.height = 'auto';
-                //创建picDetail
-                var picDetail = document.createElement('div');
-                picDetail.className = 'pic_detail';
-                piccardDiv.appendChild(picDetail);
-                //创建picdetail中的标题
-                var picname = document.createElement('h4');
-                picname.className = 'picname';
-                picname.innerHTML=piclist[i].name;
-                picDetail.appendChild(picname);
-                //创建图片描述
-                var picdesc = document.createElement('p');
-                picdesc.className = 'picdesc';
-                picdesc.innerHTML=piclist[i].description;
-                picDetail.appendChild(picdesc);
-                //创建详细信息
-                var ul1=document.createElement('ul');
-                picDetail.appendChild(ul1);
-                //创建点赞模块
-                var like=document.createElement('li');
-                like.className = 'like';
-                ul1.appendChild(like);
-                //创建点赞数
-                var piclike=document.createElement('span');
-                piclike.className = 'piclike';
-                piclike.innerHTML=piclist[i].piclike;
-                like.appendChild(piclike);
-                //创建收藏模块
-                var collect=document.createElement('li');
-                collect.className = 'collect';
-                ul1.appendChild(collect);
-                //创建收藏数
-                var piccollect=document.createElement('span');
-                piccollect.className = 'piccollect';
-                piccollect.innerHTML=piclist[i].collect;
-                collect.appendChild(piccollect);
-                //创建评论模块
-                var comment=document.createElement('li');
-                comment.className = 'comment';
-                ul1.appendChild(comment);
-                //创建评论数
-                var piccomment=document.createElement('span');
-                piccomment.className = 'piccomment';
-                piccomment.innerHTML=piclist[i].comment;
-                comment.appendChild(piccomment);
-                //创建举报模块
-                var report=document.createElement('li');
-                report.className = 'report';
-                report.innerHTML='举报';
-                $(".report").attr({'data-toggle':'modal','data-target':'#reportModal','data-toggle':'modal','data-target':'#reportModal'});
-                ul1.appendChild(report);
-                 //创建ownerDetail
-                var ownerDetail = document.createElement('div');
-                ownerDetail.className = 'owner_detail';
-                piccardDiv.appendChild(ownerDetail);
-                //创建用户头像
-                var userimg = document.createElement('img');
-                ownerDetail.appendChild(userimg);
-                userimg.src = piclist[i].user.img;
-                userimg.className = 'ownerImg';
-                //创建新的div
-                var div=document.createElement('div');
-                ownerDetail.appendChild(div);
-                //创建ownername
-                var ownername=document.createElement('span');
-                div.appendChild(ownername);
-                ownername.innerHTML=piclist[i].user.name;
-                //创建等级
-                var ownergrade=document.createElement('span');
-                div.appendChild(ownergrade);
-                ownergrade.innerHTML="&nbsp;&nbsp;&nbsp;"+piclist[i].user.grade.grade;
-                //发表图片
-                var publish=document.createElement('p');
-                div.appendChild(publish);
-                publish.innerHTML="发表图片";
-                //时间
-                 var time=document.createElement('p');
-                 ownerDetail.appendChild(time);
-                time.className='time';
-                time.innerHTML=piclist[i].time.split(" ")[0];
-                
-                
-            }
-            imgLocation();
+            	loadPicList() ;
         }    
          
      }
- });   
+ });
+function loadPicList(){
+    var waterfallUl = document.getElementById('waterfall_ul');
+    for(i in piclist){
+    	
+        //创建li
+        var pic_card= document.createElement('li');
+        pic_card.className = 'pic_card';
+        waterfallUl.appendChild(pic_card);
+        //创建div
+        var piccardDiv= document.createElement('div');
+        piccardDiv.className = 'piccardDiv';
+        pic_card.appendChild(piccardDiv);
+        //创建img
+        var img = document.createElement('img');
+        piccardDiv.appendChild(img);
+         img.src = piclist[i].picpath;
+        img.style.height = 'auto';
+        //创建picDetail
+        var picDetail = document.createElement('div');
+        picDetail.className = 'pic_detail';
+        piccardDiv.appendChild(picDetail);
+        //创建picdetail中的标题
+        var picname = document.createElement('h4');
+        picname.className = 'picname';
+        picname.innerHTML=piclist[i].name;
+        picDetail.appendChild(picname);
+        //创建图片描述
+        var picdesc = document.createElement('p');
+        picdesc.className = 'picdesc';
+        picdesc.innerHTML=piclist[i].description;
+        picDetail.appendChild(picdesc);
+        //创建详细信息
+        var ul1=document.createElement('ul');
+        picDetail.appendChild(ul1);
+        //创建点赞模块
+        var like=document.createElement('li');
+        like.className = 'like';
+        ul1.appendChild(like);
+        //创建点赞数
+        var piclike=document.createElement('span');
+        piclike.className = 'piclike';
+        piclike.innerHTML=piclist[i].piclike;
+        like.appendChild(piclike);
+        //创建收藏模块
+        var collect=document.createElement('li');
+        collect.className = 'collect';
+        ul1.appendChild(collect);
+        //创建收藏数
+        var piccollect=document.createElement('span');
+        piccollect.className = 'piccollect';
+        piccollect.innerHTML=piclist[i].collect;
+        collect.appendChild(piccollect);
+        //创建评论模块
+        var comment=document.createElement('li');
+        comment.className = 'comment';
+        ul1.appendChild(comment);
+        //创建评论数
+        var piccomment=document.createElement('span');
+        piccomment.className = 'piccomment';
+        piccomment.innerHTML=piclist[i].comment;
+        comment.appendChild(piccomment);
+        //创建举报模块
+        var report=document.createElement('li');
+        report.className = 'report';
+        report.innerHTML='举报';
+        $(".report").attr({'data-toggle':'modal','data-target':'#reportModal','data-toggle':'modal','data-target':'#reportModal'});
+        ul1.appendChild(report);
+         //创建ownerDetail
+        var ownerDetail = document.createElement('div');
+        ownerDetail.className = 'owner_detail';
+        piccardDiv.appendChild(ownerDetail);
+        //创建用户头像
+        var userimg = document.createElement('img');
+        ownerDetail.appendChild(userimg);
+        userimg.src = piclist[i].user.img;
+        userimg.className = 'ownerImg';
+        //创建新的div
+        var div=document.createElement('div');
+        ownerDetail.appendChild(div);
+        //创建ownername
+        var ownername=document.createElement('span');
+        div.appendChild(ownername);
+        ownername.innerHTML=piclist[i].user.name;
+        //创建等级
+        var ownergrade=document.createElement('span');
+        div.appendChild(ownergrade);
+        ownergrade.innerHTML="&nbsp;&nbsp;&nbsp;"+piclist[i].user.grade.grade;
+        //发表图片
+        var publish=document.createElement('p');
+        div.appendChild(publish);
+        publish.innerHTML="发表图片";
+        //时间
+         var time=document.createElement('p');
+         ownerDetail.appendChild(time);
+        time.className='time';
+        time.innerHTML=piclist[i].time.split(" ")[0];
+        
+        
+    }
+    imgLocation();
+}
 /**
 * 瀑布流主函数
 * @param  wrap  [Str] 外层元素的ID
@@ -269,9 +296,11 @@ function scrollside(){
      */
 }
 	
+
 	
 	//在首页更新时刷新页面
 	getPicList();
 	//获取摄影日志
 	getCalendar();
+	
 });
