@@ -34,9 +34,9 @@ import com.qiniu.util.Auth;
 public class PicServiceImpl implements PicService {
 	@Autowired
 	private PicVOMapper mapper;
-
+	
 	@Autowired
-	private UserVOMapper usermapper;
+	private UserVOMapper usermapper ;
 
 	@Override
 	public int addPic(PicVO pic) throws Throwable {
@@ -49,8 +49,8 @@ public class PicServiceImpl implements PicService {
 	}
 
 	@Override
-	public PicVO getPicById(Integer id) throws Throwable {
-		return mapper.selectByPrimaryKey(id);
+	public PicEX getPicById(Integer id) throws Throwable {
+		return mapper.selectPicDetailById(id);
 	}
 
 	@Override
@@ -71,6 +71,7 @@ public class PicServiceImpl implements PicService {
 
 	@Override
 	public Response doUpload(byte[] b, PicVO pic) throws Throwable {
+	
 
 		String bucketname = "moment";
 		String fileName = UUID.randomUUID().toString();
@@ -79,7 +80,7 @@ public class PicServiceImpl implements PicService {
 		String token = auth.uploadToken(bucketname);
 		UploadManager manager = new UploadManager();
 		Response response = manager.put(b, fileName, token);
-
+		
 		if (response.isOK()) {
 			mapper.insertSelective(pic);
 		}
@@ -119,45 +120,45 @@ public class PicServiceImpl implements PicService {
 		// 获取在这时间范围内的图片,可以使用链式结构
 		example.createCriteria().andTimeBetween(date1, date2).andUseridEqualTo(id);
 		List<PicVO> list = mapper.selectByExample(example);
-
+		
 		return list.size();
 	}
 
 	@Override
 	public void updateUserGrade(UserVO user) throws Throwable {
-		Integer picnum = user.getPicnum();
-		if ((picnum >= 30) && (picnum < 60)) {
+		Integer picnum = user.getPicnum() ;
+		if((picnum>=30)&&(picnum<60)){
 			user.setGradeid(2);
 			usermapper.updateByPrimaryKeySelective(user);
-		} else if ((picnum >= 60) && (picnum < 100)) {
+		}else if((picnum>=60)&&(picnum<100)){
 			user.setGradeid(3);
 			usermapper.updateByPrimaryKeySelective(user);
-		} else if ((picnum >= 100)) {
+		}else if((picnum>=100)){
 			user.setGradeid(4);
 			usermapper.updateByPrimaryKeySelective(user);
-		} else {
+		}else{			
 			user.setGradeid(1);
 			usermapper.updateByPrimaryKeySelective(user);
-		}
+		}			
 	}
 
 	@Override
 	public List<PicEX> getPicList(String type) throws Throwable {
-		PicVOExample example = new PicVOExample();
-		example.createCriteria().andTypeLike("%" + type + "%");
+		PicVOExample example = new PicVOExample() ;
+		example.createCriteria().andTypeLike("%"+type+"%") ;
 		example.setOrderByClause("time desc");
 		return mapper.selectPicDetailByExample(example);
 	}
+	
 
 	@Override
 	public List<PicVO> getUserPicList(Integer id) throws Throwable {
-		PicVOExample example = new PicVOExample();
-		example.createCriteria().andUseridEqualTo(id);
+		PicVOExample example = new PicVOExample() ;
+		example.createCriteria().andUseridEqualTo(id) ;
 		example.setOrderByClause("time desc");
 		return mapper.selectByExample(example);
-
+		
 	}
-
 	@Override
 	public List<PicEX> getPicListByCondition(String key) throws Throwable {
 		PicVOExample example = new PicVOExample();
@@ -167,4 +168,5 @@ public class PicServiceImpl implements PicService {
 		return mapper.selectPicDetailByExample(example);
 	}
 
+	
 }

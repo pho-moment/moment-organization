@@ -22,6 +22,8 @@ public interface PicVOMapper {
     List<PicVO> selectByExample(PicVOExample example);
 
     PicVO selectByPrimaryKey(Integer id);
+    
+    PicEX selectPicDetailById(Integer id);
 
     int updateByExampleSelective(@Param("record") PicVO record, @Param("example") PicVOExample example);
 

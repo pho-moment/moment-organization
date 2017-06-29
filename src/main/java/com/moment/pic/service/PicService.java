@@ -16,7 +16,7 @@ public interface PicService {
 	
 	public int deletePic(Integer id) throws Throwable;
 	
-	public PicVO getPicById(Integer id) throws Throwable;
+	public PicEX getPicById(Integer id) throws Throwable;
 	
 	public int updatePicVO(PicVO pic) throws Throwable;
 	public DataTablesResponse<PicVO> list(DataTablesRequest request) throws Throwable;

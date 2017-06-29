@@ -240,6 +240,7 @@ button.upload_btn {
 .pic_waterfall ul>li img {
     width: 100%;
     display: block;
+    cursor: pointer;
 }
 .pic_waterfall>ul>li {
     padding-top: 2px;
@@ -487,4 +488,207 @@ header ul>li a:hover{
     -o-animation:shade 3s ease-in-out 1;
     animation:shade 3s ease-in-out 1;
 }
+/*举报图片的模态框*/
+.modal-dialog.display-dialog {
+    width: 100%;
+    margin: 0 auto;
+}
+.display-dialog .modal-content {
+    background-color: rgba(247, 247, 247, 0.84);
+}
+.display-dialog button.close {
+    font-size: 45px;
+    font-weight: 400;
+}
+.display-dialog .modal-header {
+    min-height: 45px;
+    padding: 5px 15px 5px 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+img.display-pic {
+    display: block;
+    margin: 0 auto;
+    width:90%;
+}
+.displaypic-div {
+    background-color: #fff;
+    width: 52%;
+    margin: 0 auto;
+    box-shadow: 6px 8px 18px #8A8585;
+    padding: 32px 0px;
+}
+.left-div.left_arrow ,.right-div.right_arrow {
+    display: inline-block;
+}
+.left-div.left_arrow {
+    position: fixed;
+    top: 289px;
+    left: 8px;
+    width: 100px;
+    height: 300px;
+}
+.right-div.right_arrow {
+    position: fixed;
+    top: 289px;
+    right: 8px;
+    width: 100px;
+    height: 300px;
+}
+.display-dialog li.report {
+    float: right;
+}
+.display-dialog ul {
+    padding: 15px 30px 7px 29px;
+}
+.display-dialog ul li {
+    display: inline-block;
+    border: 1px solid #D2CBCB;
+    background-color: #f0f0f0;
+    width: 48px;
+    margin-left: 6px;
+}
+.display-dialog span.piclike,
+ .display-dialog span.piccollect,
+ .display-dialog span.piccollect {
+    padding: 24px;
+}
 
+.modal-middle-body {
+    width: 51%;
+    display: block;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 6px 8px 18px #8A8585;
+        padding-top: 20px;
+        padding-bottom: 44px;
+}
+.modal-middle-body .user_detail span {
+    padding: 0px 14px;
+    font-size: 17px;
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+.modal-middle-body .user_detail {
+    height: 67px;
+        position: relative;
+}
+.modal-middle-body img {
+    width: 66px;
+    display: inline-block;
+    margin-left: 29px;
+    /* padding: 10px; */
+}
+.modal-middle-body .user_detail p {
+    width: 65px;
+    margin-left: 112px;
+    color: #999;
+    margin-top: -26px;
+}
+.modal-middle-body .pic-detail {
+    background-color: rgba(220, 214, 214,  0.13);
+    margin: 10px 27px;
+        clear: both;
+    /* margin-bottom: 20px; */
+}
+p.createtime {
+    position: absolute;
+    right: 20px;
+    width: 100px!important;
+    top: 68px;
+}
+.modal-middle-body .pic-detail p:first-child {
+    font-size: 23px;
+    padding: 10px 20px;
+}
+.modal-middle-body  .pic-detail p:nth-child(2) {
+    padding: 1px 23px 15px 23px;
+        color: #666;
+}
+.modal-middle-body .comment_div textarea {
+    padding: 10p;
+    margin-left: -2px;
+}
+.comment_div {
+    width: 91%;
+    margin: 40px auto;
+}
+.comment_div textarea {
+    margin-left: -2px;
+}
+.comment_div button {
+    float: right;
+    display: block;
+    margin: 8px auto;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 12px;
+    background-color: #999;
+    border: 0px;
+}
+.other-comment {
+    margin-top: 70px;
+}
+
+.other-comment  hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.cpmment-content img {
+    width: 20px;
+    margin: 0;
+}
+.cpmment-content .comment-text{
+    display: inline-block;
+    font-size: 13px;
+    color: #555;
+}
+.cpmment-content .comment-name{
+    display: inline-block;
+    color: #aaa;
+}
+.cpmment-content .reply_button{
+    float: right;
+    font-size: 13px;
+    cursor: pointer;
+    color: #aaa;
+}
+p.reply {
+    display: inline-block;
+    font-size: 13px;
+    color: #555;
+}
+.watch_div {
+   position: absolute;
+    right: 21px;
+    top: 1px;
+}
+span.watch {
+    float: right;
+    margin-right: 19px;
+    font-size: 14px!important;
+    margin-top: 7px!important;
+    color: #666;
+    cursor: pointer;
+}
+span.watched {
+    float: right;
+    margin-right: 16px;
+    font-size: 14px!important;
+    background-color: rgba(239, 153, 27, 0.73);
+    height: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+span.watch:hover,span.watch:active{
+	color:orange;
+}
+.user_detail span.time {
+    float: left;
+    position: initial;
+    margin-left: 12px;
+    position: absolute;
+    font-size: 14px;
+    width: 200px;
+    top: 31px;
+}

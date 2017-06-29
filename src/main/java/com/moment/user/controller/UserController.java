@@ -236,7 +236,7 @@ public class UserController {
 	@Transactional
 	@RequestMapping("/doupload")
 	public @ResponseBody JsonResult doUpload(MultipartFile file,HttpSession session,JsonResult result,String imgdata) throws Throwable {
-			System.out.println(imgdata);
+			
 			System.out.println("裁剪前："+file.getSize());
 			Cropper cropper=JSONObject.parseObject(imgdata,Cropper.class);
 			
@@ -247,7 +247,6 @@ public class UserController {
 			}else{
 				String originName=file.getOriginalFilename();
 				String format=originName.substring(originName.lastIndexOf('.'));
-				System.out.println(format);
 				if((!".jpeg".equals(format))&&(!".jpg".equals(format))&&(!".png".equals(format))&&(!".gif".equals(format))){
 					result.setMsg("图片格式须为jpeg,jpg,png,gif其中一种");
 					result.setStatus(0);
@@ -256,9 +255,7 @@ public class UserController {
 		            MultipartFile file2=PicCropper.cut(file, cropper.getX(),cropper.getY(),cropper.getWidth(),cropper.getHeight()); 
 					byte[] newFile = file2.getBytes();
 					System.out.println("裁剪后："+file2.getSize());
-					System.out.println(file2);
 					String path=service.doUpload(file2.getBytes());
-					System.out.println(path);
 					if(path!=null){
 						result.setMsg(path);
 						result.setStatus(1);

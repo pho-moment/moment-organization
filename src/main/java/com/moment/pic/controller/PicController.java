@@ -49,7 +49,6 @@ public class PicController {
 		int test2 = grade.getUploadnum() ;
 		if (service.getPicnumByDate(cuser.getUserId()) < grade.getUploadnum()) {
 			//实现图片的裁剪
-			System.out.println(imgdata);
 			System.out.println("裁剪前："+file.getSize());
 			Cropper cropper=JSONObject.parseObject(imgdata,Cropper.class);
 			MultipartFile file2=PicCropper.cut(file, cropper.getX(),cropper.getY(),cropper.getWidth(),cropper.getHeight()); 
@@ -108,15 +107,28 @@ public class PicController {
 		if(type==null){
 			type = "" ;
 		}
-		System.out.println(type);
 		try {
 			picList = service.getPicList(type) ;
-			System.out.println(picList);
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 		return picList;
 	}
+	@RequestMapping("/getPicById")
+	public  @ResponseBody PicEX getPicById(int id){
+		PicEX pic=null;
+		try {
+			 pic= service.getPicById(id);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		return pic;
+	}
+	/**
+	 * 根据条件查找图片
+	 * @param pickey
+	 * @return
+	 */
 	@RequestMapping("/getPicListByCondition")
 	public @ResponseBody List<PicEX> getPicListByCondition(String pickey){
 		List<PicEX> picList = null ;

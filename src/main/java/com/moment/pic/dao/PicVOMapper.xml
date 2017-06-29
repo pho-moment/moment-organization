@@ -147,6 +147,16 @@
       </if>
     </if>
   </select>
+    <select id="selectPicDetailById" resultMap="EXUserResultMap" parameterType="java.lang.Integer" >
+    select
+    pic.id, pic.name, pic.description, pic.ispublic, pic.picpath, pic.time, pic.userid, pic.type, pic.piclike, pic.collect, pic.comment,
+    user.id as user_id,user.sex,user.name as user_name,user.account,user.gradeid,user.img,
+    grade.grade
+	FROM
+	pic,user,grade 
+    where pic.id = #{id,jdbcType=INTEGER}
+    and  pic.userid=user.id and user.gradeid=grade.id 
+  </select>
    <select id="selectPicEXByExample" resultMap="BaseResultMap" parameterType="com.moment.pic.domain.PicVOExample" >
     select
     <if test="distinct" >
